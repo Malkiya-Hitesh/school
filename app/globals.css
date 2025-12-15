@@ -1,26 +1,58 @@
 @import "tailwindcss";
-
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #1e40af;
+  --color-primary-dark: #1e3a8a;
+  --color-secondary: #282829;
+  --color-bg: #ffffff;
+  --color-bg-light: #f9f8fc;
+  --color-text: #0d0d0e;
+  --color-text-light: #475569;
+  --color-border: #e2e8f0;
+  --color-accent: #3b82f6;
+  --color-hover: #1d4ed8;
+  --color-card-bg: #ffffff;
+  --text-xxl: 1.5rem;
+  --text-xl: 1.75rem;
+  --text-lgg: 1.25rem;
+  --text-md: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --font-primary: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Poppins", "Inter", sans-serif;
+
+  --cost-margin-s: 1rem;
+  --cost-margin-l: 1.5rem;
+  --cost-margin-xl: 2rem;
+  --cost-margin-xxl: 3rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+body,
+html {
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* set global font stacks using CSS variables */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* headings use the heading font */
+h1, h2, h3, .home-head {
+  font-family: var(--font-heading);
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+/* global.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }
