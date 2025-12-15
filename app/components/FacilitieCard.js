@@ -8,40 +8,40 @@ export default function FacilitieCard() {
   const containerRef = useRef(null);
   const isAnimating = useRef(false);
 
-  useEffect(() => {
-    gsap.registerPlugin(Flip);
-    const container = containerRef.current;
+  // useEffect(() => {
+  //   gsap.registerPlugin(Flip);
+  //   const container = containerRef.current;
 
-    const updateCaterpillar = (forward = true) => {
-      if (isAnimating.current) return;
-      isAnimating.current = true;
+  //   const updateCaterpillar = (forward = true) => {
+  //     if (isAnimating.current) return;
+  //     isAnimating.current = true;
 
-      const cards = gsap.utils.toArray(container.children);
+  //     const cards = gsap.utils.toArray(container.children);
 
-      const state = Flip.getState(cards);
+  //     const state = Flip.getState(cards);
 
-      if (forward) {
-        container.append(cards[0]);
-      } else {
-        container.prepend(cards[cards.length - 1]);
-      }
+  //     if (forward) {
+  //       container.append(cards[0]);
+  //     } else {
+  //       container.prepend(cards[cards.length - 1]);
+  //     }
 
-      Flip.from(state, {
-        targets: cards,
-        duration: 2,
-         fade: true,
-         scale : 0.2,
-        ease: "power1.inOut",
-        absoluteOnLeave: true,
-        onComplete: () => {
-          isAnimating.current = false;
-        }
-      });
-    };
+  //     Flip.from(state, {
+  //       targets: cards,
+  //       duration: 2,
+  //        fade: true,
+  //        scale : 0.2,
+  //       ease: "power1.inOut",
+  //       absoluteOnLeave: true,
+  //       onComplete: () => {
+  //         isAnimating.current = false;
+  //       }
+  //     });
+  //   };
 
-    const loop = setInterval(() => updateCaterpillar(true), 2000);
-    return () => clearInterval(loop);
-  }, []);
+  //   const loop = setInterval(() => updateCaterpillar(true), 2000);
+  //   return () => clearInterval(loop);
+  // }, []);
 
   const offers = [
     { id: 1, title: "Lab", desc: "State-of-the-art laboratory.", img: "/image/lab.jpg" },
