@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/public/image/_images.zip
 
 # production
 /build
