@@ -1,3 +1,5 @@
+
+import Achievement from "./components/Achievement";
 import Facilities from "./components/Facilities";
 import Home from "./components/Home";
 
@@ -54,7 +56,9 @@ export default function Page() {
   
   return (<>
 <Home />
-<Facilities />
+<Achievement />
+{/* <Facilities /> */}
+
 </>
   );
 }

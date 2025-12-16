@@ -1,8 +1,9 @@
 import React from 'react'
 import FacilitieCard from './FacilitieCard'
 import H1 from './ui/H1'
+import AchievementCard from './AchievementCard'
 
-function Facilities() {
+function Achievement() {
     return (
         <section className="py-10 flex flex-col items-center mt-6  gap-8">
 
@@ -10,11 +11,11 @@ function Facilities() {
             <div>
                 <H1 data={'Achievement'} />
             </div>
-            <FacilitieCard />
+            <AchievementCard />
 
 
         </section>
     )
 }
 
-export default Facilities
+export default Achievement
