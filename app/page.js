@@ -43,6 +43,7 @@ export const metadata = {
         url: "/image/logo.png",
         width: 1200,
         height: 630,
+        
         alt: "Sarsvati Vidhayalay Logo",
       },
     ],

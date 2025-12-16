@@ -5,7 +5,7 @@ import NavButoon from './ui/NavButoon'
 import ResposiveNave from './ResposiveNave';
 import { useEffect } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+
 // import NavDropdown from './ui/NavDropdown';
 function Navbar() {
 
