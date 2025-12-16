@@ -11,11 +11,11 @@ function Navbar() {
 
 
     useEffect(() => {
-
+const startAnimation = ()=>{
         gsap.from('.nav-link a', {
             x: 40,
             opacity: 0,
-            duration: 1,
+            duration: 1.3,
             stagger: 0.2,
             ease: "elastic.out(1,0.3)",
         })
@@ -24,9 +24,14 @@ function Navbar() {
 
             x: -40,
             opacity: 0,
-            duration: 2,
+            duration: 2.5,
             ease: "elastic.out(1,0.3)",
         })
+    }
+
+        window.addEventListener('loaderFinished', startAnimation)
+
+    return () => window.removeEventListener('loaderFinished', startAnimation)
     }, []);
 
     return (
@@ -84,6 +89,6 @@ export default Navbar
 
 export const NavLink = ({ data, h }) => {
     return (
-        <Link className='text-[1.35rem] font-semibold capitalize' href={h} >{data}</Link>
+        <Link className='text-[1.35rem] hover:text-blue-600 font-semibold capitalize' href={h} >{data}</Link>
     )
 }

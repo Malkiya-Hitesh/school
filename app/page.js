@@ -2,6 +2,8 @@
 import Achievement from "./components/Achievement";
 import Facilities from "./components/Facilities";
 import Home from "./components/Home";
+import SchoolLoader from "./components/ui/Loader";
+
 
 
 export const metadata = {
@@ -55,6 +57,7 @@ export const metadata = {
 export default function Page() {
   
   return (<>
+  <SchoolLoader />
 <Home />
 <Achievement />
 {/* <Facilities /> */}

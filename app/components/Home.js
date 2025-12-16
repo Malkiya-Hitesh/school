@@ -54,27 +54,31 @@ function Home() {
   useEffect(() => {
 
    
-
-    const tl = gsap.timeline();
+const startAnimation = ()=>{
+  const tl = gsap.timeline();
     tl.from('.home-head', {
       y: -80,
       opacity: 0,
-      duration: 1.2,
+      duration: 1.5,
       ease: 'power2.out',
-      delay: 0.4,
+     
     })
     tl.from('.home-sub', {
       y: -40,
       opacity: 0,
-      duration: 1,
+      duration: 1.2,
       ease: 'power2.out',
-    }, '-=0.9')
+    }, '-=0.5')
     tl.from('.home-badge', {
       y: -20,
       opacity: 0,
-      duration: 0.8,
+      duration: 1.2,
       ease: 'power2.out',
-    }, '-=0.8')
+    }, '-=0.5')
+}
+  window.addEventListener('loaderFinished', startAnimation)
+
+    return () => window.removeEventListener('loaderFinished', startAnimation)
   }, []);
   return (
     <>
