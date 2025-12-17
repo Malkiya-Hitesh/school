@@ -1,7 +1,9 @@
 
 import Achievement from "./components/Achievement";
+import Choose from "./components/Choose";
 import Facilities from "./components/Facilities";
 import Home from "./components/Home";
+import Programs from "./components/Programs";
 import SchoolLoader from "./components/ui/Loader";
 
 
@@ -51,6 +53,8 @@ export default function Page() {
   <SchoolLoader />
 <Home />
 <Achievement />
+<Programs />
+<Choose />
 {/* <Facilities /> */}
 
 </>

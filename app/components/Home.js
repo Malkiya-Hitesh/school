@@ -25,7 +25,7 @@ function Home() {
   //     backgroundImage: `url(${images[0]})`,
   //   })
 
-  
+
   //   const interval = setInterval(() => {
   //     const nextIndex = (index + 1) % images.length
 
@@ -53,44 +53,59 @@ function Home() {
 
   useEffect(() => {
 
-   
-const startAnimation = ()=>{
-  const tl = gsap.timeline();
-    tl.from('.home-head', {
-      y: -80,
-      opacity: 0,
-      duration: 1.5,
-      ease: 'power2.out',
-     
-    })
-    tl.from('.home-sub', {
-      y: -40,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out',
-    }, '-=0.5')
-    tl.from('.home-badge', {
-      y: -20,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out',
-    }, '-=0.5')
-}
-  window.addEventListener('loaderFinished', startAnimation)
+  gsap.to('.home-head', {
+    backgroundPosition: '200% 50%',
+    duration: 2,
+    ease: 'linear',
+    repeat: -1,
+  
+  })
+
+
+
+    const startAnimation = () => {
+      const tl = gsap.timeline();
+      tl.from('.home-head', {
+        y: -80,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power2.out',
+
+      })
+      tl.from('.home-sub', {
+        y: -40,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power2.out',
+      }, '-=0.5')
+      tl.from('.home-badge', {
+        y: -20,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power2.out',
+      }, '-=0.5')
+    }
+    window.addEventListener('loaderFinished', startAnimation)
 
     return () => window.removeEventListener('loaderFinished', startAnimation)
   }, []);
   return (
     <>
-      <main  className="relative bg-[url('/image/hero_4.jpg')] not-first: min-w-[100vw] min-h-screen bg-cover bg-center bg-no-repeat mt-[7.5rem] lg:mt-[8.1rem]">
-        
+      <main className=" bg-[url('/image/hero_4.jpg')] not-first: min-w-[100vw] bg-cover  min-h-screen object-cover bg-no-repeat mt-[7.5rem] lg:mt-[8.1rem] ">
+
 
         {/* <div className="bg-[#1111115a] min-w-[100vw] min-h-screen backdrop-brightness-50 flex items-center"> */}/
-        <div className=' absolute inset-0 bg-gradient-to-t from-black to-transparent'>
+        <div className=' inset-0 bg-gradient-to-t from-black to-transparent'>
           <div className=" flex justify-center items-center  flex-col gap-4 w-full max-w-4xl mx-auto text-center px-6 py-24">
-            <h1 className="home-head bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-             Gnana Gangothri Vidyalaya
-            </h1>
+       <h1 className="home-head relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-100 to-yellow-300 bg-[length:200%_200%] bg-[position:0%_50%] drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
+  Gnana Gangothri Vidyalaya
+</h1>
+
+
+
+
+
+
 
             {/* <p className="home-sub mt-6 text-white text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
               Empowering students with quality education, strong values, and modern learning in bangalore.
@@ -106,8 +121,8 @@ const startAnimation = ()=>{
               </Button>
               <Button theme={"dark"}>Contact Us</Button>
             </div>
-            <div className=' w-[90vw] '>
-            <AchievementCard />
+            <div className=' w-[90vw] h-auto '>
+              <AchievementCard />
             </div>
           </div>
         </div>
