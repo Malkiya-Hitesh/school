@@ -7,40 +7,31 @@ import SchoolLoader from "./components/ui/Loader";
 
 
 export const metadata = {
-  title: "sarsvati vidhayalay school - kamlapur",
+  title: "Gnana Gangothri Vidyalaya",
   description:
-    "Sarsvati Vidhayalay School located in Kamlapur, Surendranagar, Gujarat. Providing quality education and holistic development for students.",
+    "Gnana Gangothri Vidyalaya School located in bangluru, India. Providing quality education and holistic development for students.",
   keywords: [
-    "Sarsvati Vidhayalay School",
-      "Kamlapur School",
-      "Surendranagar Education",
-      "Gujarat Schools",
-      "Student Development",
-      "Quality Education",
-      "School Activities",
-      "Academic Excellence",
-      "School Events",
-      "Sarsvati Vidhayalay Activities",
-      "Sarsvati Vidhayalay Events",
-      "Sarsvati Vidhayalay Admission",
-      "Sarsvati Vidhayalay Contact",
-      "Sarsvati Vidhayalay Location",
-      "Sarsvati Vidhayalay Facilities",
-      "Sarsvati Vidhayalay Curriculum",
-      "Sarsvati Vidhayalay Teachers",
-      "Sarsvati Vidhayalay Students",
-      "Sarsvati Vidhayalay News",
-      "Sarsvati Vidhayalay Updates",
+    "Gnana Gangothri Vidyalaya",
+    "Gnana Gangothri Vidyalaya bangluru",
+    "Gnana Gangothri Vidyalaya school",
+    "education in bangluru",
+    "holistic development",
+    "quality education",
+    "school in bangluru",
+    "best school bangluru",
+    "Gnana Gangothri Vidyalaya admissions",
+    "Gnana Gangothri Vidyalaya contact",
   ],
   alternates: {
     canonical: "",
   },
   openGraph: {
-    title: "sarsvati vidhayalay school - kamlapur",
+    title: "Gnana Gangothri Vidyalaya - bangluru",
     description:
-      "Sarsvati Vidhayalay School located in Kamlapur, Surendranagar, Gujarat. Providing quality education and holistic development for students.",
-    url: "",
-    siteName: "sarsvati vidhayalay school",
+      "Gnana Gangothri Vidyalaya School located in bangluru, India. Providing quality education and holistic development for students.",
+    url: "https://gnanagangothrividyalaya.in/",
+    type: "website",
+    siteName: "Gnana Gangothri Vidyalaya",
     type: "website",
     images: [
       {
@@ -48,7 +39,7 @@ export const metadata = {
         width: 1200,
         height: 630,
         
-        alt: "Sarsvati Vidhayalay Logo",
+        alt: "Gnana Gangothri Vidyalaya Logo",
       },
     ],
   },

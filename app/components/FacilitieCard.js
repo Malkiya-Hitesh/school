@@ -58,7 +58,7 @@ export default function FacilitieCard() {
     <div className="w-full overflow-hidden">
       <div
         ref={containerRef}
-        className="grid grid-flow-col grid-rows-1 auto-cols-[minmax(300px,50vw)] gap-8 px-9 py-5"
+        className="grid grid-flow-col grid-rows-1 auto-cols-[minmax(30vw,50vw)] gap-8 px-9 py-5"
       >
         {offers.map((offer) => (
           <div
