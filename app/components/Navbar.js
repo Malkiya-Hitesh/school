@@ -35,11 +35,11 @@ const startAnimation = ()=>{
     }, []);
 
     return (
-        <nav className='z-5 grid grid-cols-[1fr_1fr] w-[100vw] overflow-visible min-[1024px]:h-[8rem] h-[7.5rem] max-[640px]:h-[5.5rem] pr-[2rem] max-[640px]:pr-[1.5rem] items-center bg-[var(--color-border)] fixed top-0 mb-2'>
+        <nav className='z-5 grid grid-cols-[1fr_1fr] w-[100vw] overflow-visible min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] pr-[2rem] max-[640px]:pr-[1.5rem] items-center bg-[var(--color-border)] fixed top-0 mb-2'>
 
             <div className=' '>
                 <Image
-                    className='logo-img min-[1024px]:w-[40%] w-[60%] max-[640px]:w-[70%] max-[450px]:w-[85%]    min-[1024px]:h-[8rem] h-[7.5rem] max-[640px]:h-[5.5rem]  object-contain  cursor-pointer '
+                    className='logo-img min-[1024px]:w-[40%] w-[60%] max-[640px]:w-[70%] max-[450px]:w-[85%] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] object-contain  cursor-pointer '
                     src='/image/logo.png'
                     width={1000000}
                     height={100}

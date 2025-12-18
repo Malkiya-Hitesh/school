@@ -1,6 +1,7 @@
 
 import Achievement from "./components/Achievement";
 import Choose from "./components/Choose";
+import EventSection from "./components/Event";
 import Facilities from "./components/Facilities";
 import Home from "./components/Home";
 import Programs from "./components/Programs";
@@ -40,7 +41,7 @@ export const metadata = {
         url: "/image/logo.png",
         width: 1200,
         height: 630,
-        
+
         alt: "Gnana Gangothri Vidyalaya Logo",
       },
     ],
@@ -48,15 +49,17 @@ export const metadata = {
 };
 
 export default function Page() {
-  
-  return (<>
-  <SchoolLoader />
-<Home />
-<Achievement />
-<Programs />
-<Choose />
-{/* <Facilities /> */}
 
-</>
+  return (<>
+    <SchoolLoader />
+    <Home />
+    
+    <Achievement />
+    <Programs />
+    <Choose />
+    <EventSection />
+    {/* <Facilities /> */}
+
+  </>
   );
 }

@@ -30,7 +30,7 @@ export default function Choose() {
         ease: 'none',
         scrollTrigger: {
           trigger: section,
-          start: 'top top',
+          start: 'top 10%',
           end: () => `+=${scrollLength}`,
           scrub: 1,
           pin: true,
@@ -78,7 +78,7 @@ export default function Choose() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen bg-[#0b0f1a] text-white overflow-hidden"
+      className="relative h-screen bg-[#0b0f1a] text-white overflow-hidden "
     >
       {/* Heading */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 text-center z-10">

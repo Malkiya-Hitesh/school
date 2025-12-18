@@ -90,7 +90,7 @@ export default function SchoolLoader() {
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#08192b] overflow-hidden"
+      className="fixed inset-0 z-[9999] flex items-center justify-center  bg-[#08192b] overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#08192b] via-[#0f2c4d] to-[#08192b]" />
 
@@ -110,7 +110,7 @@ export default function SchoolLoader() {
       )}
 
       {phase === 'video' && (
-        <div ref={contentRef} className="relative text-center text-white">
+        <div ref={contentRef} className="relative text-center text-white py-36">
           <h1 className="line-1 text-sm tracking-[0.35em] opacity-90">
             WELCOME TO
           </h1>

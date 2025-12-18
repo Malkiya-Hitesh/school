@@ -1,6 +1,7 @@
 
 import Curser from "./components/Curser";
 import Footer from "./components/Footer";
+import LenisProvider from "./components/LenisProvider";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 
@@ -12,7 +13,7 @@ export const metadata = {
   },
   description:
     "",
-    keywords: [],
+  keywords: [],
   authors: [{ name: "Malkiya Hitesh" }],
 
   openGraph: {
@@ -39,22 +40,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
-      <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
 
-    <meta charSet="UTF-8"></meta>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+        <meta charSet="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <body >
+
+
         <Curser />
         <Navbar />
-
-        {children}
+        <LenisProvider >
+          {children}
+        </LenisProvider>
         <Footer />
         {/* <Analytics /> */}
+
       </body>
     </html>
   );
