@@ -56,7 +56,7 @@ export default function Page() {
     
     <Achievement />
     <Programs />
-    <Choose />
+    {/* <Choose /> */}
     <EventSection />
     {/* <Facilities /> */}
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { NavLink } from './Navbar'
 import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa'
+import { NavLink } from './NavbarClient';
 
 export default function Footer() {
     const year = new Date().getFullYear();

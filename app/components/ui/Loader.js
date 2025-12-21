@@ -79,7 +79,7 @@ export default function SchoolLoader() {
   // ⏳ Simple spinner till full load
   if (phase === 'waiting') {
     return (
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white">
+      <div className="fixed inset-0 z-[9] flex items-center justify-center bg-white">
         <Loading />
       </div>
     )

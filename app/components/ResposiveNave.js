@@ -3,7 +3,7 @@ import { useState } from 'react';
 import NavButoon from './ui/NavButoon'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HiXMark } from "react-icons/hi2";
-import { NavLink } from './Navbar';
+import { NavLink } from './NavbarClient';
 // import NavDropdown from './ui/NavDropdown';
 
 function ResposiveNave() {

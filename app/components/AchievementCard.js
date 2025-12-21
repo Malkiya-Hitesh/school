@@ -12,9 +12,9 @@ function AchievementCard() {
   const cardsRef = useRef([])
 
   const images = [
-    "/image/Slide_1.png",
-    "/image/Slide_2.png",
-    "/image/Slide_3.png"
+    "/image/Slide_1.webp",
+    "/image/Slide_2.webp",
+    "/image/Slide_3.webp"
   ]
 
   const titles = [
