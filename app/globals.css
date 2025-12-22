@@ -56,3 +56,24 @@ h1, h2, h3, .home-head {
 .no-scrollbar {
   scrollbar-width: none;
 }
+.cursor-ring {
+  position: fixed;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid #215FD1;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FFC947;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}

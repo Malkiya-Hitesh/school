@@ -45,7 +45,7 @@ export default function EventSection() {
             trigger: item,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: true,
+            scrub: 0.5,
           },
         })
           .fromTo(
@@ -73,22 +73,25 @@ export default function EventSection() {
   }, [])
 
   return (
-    <section className="bg-white py-10 flex flex-col items-center mt-6 gap-8">
-      <H1 data="School Events" />
+    <section className="bg-white py-10 flex flex-col items-center mt-3 gap-24">
+      <div>
+         <H1 data="School Events" />
+      </div>
+     
 
       {/* ✅ ADD REQUIRED CLASSES */}
-      <div className="grids relative grid grid-cols-5 w-full min-h-[300vh]">
+      <div className="grids  grid grid-cols-5 w-full min-h-[300vh]">
         {images.map((item, index) => (
           <div
             key={index}
-            className="grid relative will-change-transform"
+            className="grid  will-change-transform"
             style={{
               gridColumn: item.col,
               gridRow: item.row,
             }}
           >
             <div
-              className="grid-img aspect-square w-full rounded-xl bg-cover bg-center contrast-[70%]"
+              className="grid-img aspect-square w-[80%] rounded-xl bg-cover bg-center contrast-[70%]"
               style={{
                 backgroundImage: `url(${item.img})`,
               }}

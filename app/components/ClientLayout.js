@@ -1,19 +1,22 @@
+'use client'
 
-"use client"
-
-import Curser from "./Curser"
-import Navbar from "./Navbar"
+import Cursor from "./Curser"
 import Footer from "./Footer"
-import LenisProvider from "./LenisProvider"
+import SmoothScrollProvider from "./LenisProvider"
+import Navbar from "./Navbar"
+
+
 
 export default function ClientLayout({ children }) {
   return (
     <>
-      <Curser />
       <Navbar />
-      <LenisProvider>
+
+      <SmoothScrollProvider>
+        <Cursor />
         {children}
-      </LenisProvider>
+      </SmoothScrollProvider>
+
       <Footer />
     </>
   )

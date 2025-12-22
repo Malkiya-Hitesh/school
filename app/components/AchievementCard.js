@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -30,71 +30,27 @@ function AchievementCard() {
   ]
 
   useEffect(() => {
-    /* ---------------- SCROLL ANIMATION ---------------- */
-    gsap.from(cardsRef.current, {
-      y: 80,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-      }
-    })
+    const ctx = gsap.context(() => {
+      gsap.set(cardsRef.current, { opacity: 1, y: 0 }) // reset styles
 
-    /* ---------------- HOVER ANIMATIONS ---------------- */
-    cardsRef.current.forEach(card => {
-      const overlay = card.querySelector('.overlay')
-      const image = card.querySelector('img')
-      const text = overlay.querySelectorAll('.text')
-
-      gsap.set(overlay, { y: '100%' })
-      gsap.set(text, { y: 20, opacity: 0 })
-
-      card.addEventListener('mouseenter', () => {
-        gsap.to(image, {
-          scale: 1.1,
-          duration: 0.6,
-          ease: 'power3.out'
-        })
-
-        gsap.to(overlay, {
-          y: 0,
-          duration: 0.5,
-          ease: 'power3.out'
-        })
-
-        gsap.to(text, {
-          y: 0,
-          opacity: 1,
-          stagger: 0.1,
-          delay: 0.2,
-          duration: 0.4,
-          ease: 'power3.out'
-        })
+      gsap.from(cardsRef.current, {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reset',
+        },
       })
+    }, containerRef)
 
-      card.addEventListener('mouseleave', () => {
-        gsap.to(image, {
-          scale: 1,
-          duration: 0.5,
-          ease: 'power3.inOut'
-        })
-
-        gsap.to(overlay, {
-          y: '100%',
-          duration: 0.4,
-          ease: 'power3.in'
-        })
-
-        gsap.to(text, {
-          y: 20,
-          opacity: 0,
-          duration: 0.3
-        })
-      })
-    })
+    return () => {
+      ctx.revert()           // 🔥 removes inline GSAP styles
+      ScrollTrigger.kill()   // 🔥 kills all triggers
+    }
   }, [])
 
   return (
@@ -106,21 +62,21 @@ function AchievementCard() {
         <div
           key={index}
           ref={el => (cardsRef.current[index] = el)}
-          className="relative overflow-hidden rounded-xl shadow-xl cursor-pointer"
+          className="group relative overflow-hidden rounded-xl shadow-xl cursor-pointer"
         >
           <Image
             src={img}
             width={400}
             height={300}
             alt={`Achievement ${index + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
 
-          <div className="overlay absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-6 flex flex-col justify-end text-white">
-            <h3 className="text text-lg font-semibold">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-6 flex flex-col justify-end text-white opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <h3 className="text-lg font-semibold">
               {titles[index]}
             </h3>
-            <p className="text text-sm mt-2">
+            <p className="text-sm mt-2">
               {descriptions[index]}
             </p>
           </div>

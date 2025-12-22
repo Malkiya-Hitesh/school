@@ -1,47 +1,39 @@
-
 import Achievement from "./components/Achievement";
 import Choose from "./components/Choose";
+import ContactSection from "./components/ContactSection";
 import EventSection from "./components/Event";
 import Facilities from "./components/Facilities";
+import Fqa from "./components/Fqa";
 import Home from "./components/Home";
 import Programs from "./components/Programs";
+import Teachers from "./components/Teachers";
+
 import SchoolLoader from "./components/ui/Loader";
-
-
 
 export const metadata = {
   title: "Gnana Gangothri Vidyalaya",
   description:
-    "Gnana Gangothri Vidyalaya School located in bangluru, India. Providing quality education and holistic development for students.",
+    "Gnana Gangothri Vidyalaya School located in Bengaluru, India. Providing quality education and holistic development for students.",
   keywords: [
     "Gnana Gangothri Vidyalaya",
-    "Gnana Gangothri Vidyalaya bangluru",
-    "Gnana Gangothri Vidyalaya school",
-    "education in bangluru",
-    "holistic development",
+    "school in Bengaluru",
+    "best school Bengaluru",
     "quality education",
-    "school in bangluru",
-    "best school bangluru",
-    "Gnana Gangothri Vidyalaya admissions",
-    "Gnana Gangothri Vidyalaya contact",
   ],
   alternates: {
-    canonical: "",
+    canonical: "https://gnanagangothrividyalaya.in/",
   },
   openGraph: {
-    title: "Gnana Gangothri Vidyalaya - bangluru",
+    title: "Gnana Gangothri Vidyalaya - Bengaluru",
     description:
-      "Gnana Gangothri Vidyalaya School located in bangluru, India. Providing quality education and holistic development for students.",
+      "Gnana Gangothri Vidyalaya School located in Bengaluru, India.",
     url: "https://gnanagangothrividyalaya.in/",
-    type: "website",
     siteName: "Gnana Gangothri Vidyalaya",
-    type: "website",
     images: [
       {
         url: "/image/logo.png",
         width: 1200,
         height: 630,
-
         alt: "Gnana Gangothri Vidyalaya Logo",
       },
     ],
@@ -49,17 +41,44 @@ export const metadata = {
 };
 
 export default function Page() {
+  return (
+    <>
+      {/* Loader (temporary – later make state based) */}
+      <SchoolLoader />
 
-  return (<>
-    <SchoolLoader />
-    <Home />
-    
-    <Achievement />
-    <Programs />
-    {/* <Choose /> */}
-    <EventSection />
-    {/* <Facilities /> */}
+      <main id="main-content">
+        <section id="home">
+          <Home />
+        </section>
 
-  </>
+        <section id="achievement">
+          <Achievement />
+        </section>
+
+        <section id="programs">
+          <Programs />
+        </section>
+
+        <section id="choose">
+          <Choose />
+        </section>
+
+        <section id="events">
+          <EventSection />
+        </section>
+
+        <section id="teachers">
+          <Teachers />
+        </section>
+
+        <section id="faq">
+          <Fqa />
+        </section>
+
+        <section id="contact">
+          <ContactSection />
+        </section>
+      </main>
+    </>
   );
 }

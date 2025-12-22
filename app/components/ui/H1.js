@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+import { Baloo_2 } from "next/font/google"
+const baloo = Baloo_2({ subsets: ["latin"], weight: "700" })
 gsap.registerPlugin(ScrollTrigger)
 
 function H1({ data }) {
@@ -30,7 +31,7 @@ function H1({ data }) {
   }, [])
 
   return (
-    <h1 className="h1-animate text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+    <h1 className={`${baloo.className} h1-animate text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}>
       {data}
     </h1>
   )

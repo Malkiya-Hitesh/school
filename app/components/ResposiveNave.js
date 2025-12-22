@@ -61,7 +61,7 @@ function ResposiveNave() {
                     <NavLink h={"/about"} data={"about"} />
                 </div>
                 <div onClick={toggleMenu}>
-                    <NavLink h={"/staff"} data={"staff"} />
+                    <NavLink h={"/Alumini"} data={"alumini"} />
                 </div>
                 <div onClick={toggleMenu}>
 

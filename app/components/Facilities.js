@@ -8,7 +8,7 @@ function Facilities() {
 
             {/* Heading */}
             <div>
-                <H1 data={'Achievement'} />
+                <H1 data={'Facilities'} />
             </div>
             <FacilitieCard />
 

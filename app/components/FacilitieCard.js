@@ -34,7 +34,7 @@ export default function FacilitieCard() {
         ease: "power1.inOut",
         absoluteOnLeave: true,
         onComplete: () => {
-          isAnimating.current = false;
+          isAnimating.current = true;
         }
       });
     };

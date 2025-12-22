@@ -7,10 +7,9 @@ import NavButoon from './ui/NavButoon'
 import ResposiveNave from './ResposiveNave';
 import { useEffect } from 'react';
 import gsap from 'gsap';
-
+import {Rubik} from "next/font/google"
 // import NavDropdown from './ui/NavDropdown';
-
-
+const rubik = Rubik({ subsets: ["latin"], weight: ["500", "600", "700"] })
 export default function NavbarClient() {
 
 
@@ -39,9 +38,9 @@ const startAnimation = ()=>{
     }, []);
 
     return (
-        <nav className='z-5 grid grid-cols-[1fr_1fr] w-[100vw] overflow-visible min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] pr-[2rem] max-[640px]:pr-[1.5rem] items-center bg-[var(--color-border)] fixed top-0 mb-2'>
+        <nav className='z-5 grid grid-cols-[0.5fr_1fr] w-[100vw] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] pr-[2rem] max-[640px]:pr-[1.5rem] items-center bg-[var(--color-border)] fixed top-0 mb-2'>
 
-            <div className=' '>
+            <div className='flex justify-start '>
                 <Image
                     className='logo-img min-[1024px]:w-[40%] w-[60%] max-[640px]:w-[70%] max-[450px]:w-[85%] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] object-contain  cursor-pointer '
                     src='/image/logo.png'
@@ -51,10 +50,10 @@ const startAnimation = ()=>{
                 />
 
             </div>
-            <div className='flex nav-link items-center gap-3 justify-between max-[1024]:hidden' >
+            <div className='flex nav-link items-center gap-5 justify-end max-[1024]:hidden' >
                 <NavLink h={"/"} data={"home"} />
                 <NavLink h={"/about"} data={"about"} />
-                <NavLink h={"/staff"} data={"staff"} />
+                <NavLink h={"/Alumini"} data={"alumini"} />
                 <NavLink h={"/notice"} data={"notice"} />
                 <NavLink h={"/gallery"} data={"gallery"} />
                 <Link href={"/contact"}>
@@ -80,6 +79,7 @@ const startAnimation = ()=>{
 
 export const NavLink = ({ data, h }) => {
     return (
-        <Link className='text-[1.35rem] hover:text-blue-600 font-semibold capitalize' href={h} >{data}</Link>
+        <Link className={`${rubik.className} text-[1.35rem] tracking-[1.5px]
+ hover:text-blue-600 font-semibold capitalize`} href={h} >{data}</Link>
     )
 }

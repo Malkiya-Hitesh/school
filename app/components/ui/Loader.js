@@ -111,13 +111,17 @@ export default function SchoolLoader() {
 
       {phase === 'video' && (
         <div ref={contentRef} className="relative text-center text-white py-36">
-          <h1 className="line-1 text-sm tracking-[0.35em] opacity-90">
+          <h1 data-line="1" className="text-sm tracking-[0.35em] opacity-90">
             WELCOME TO
           </h1>
-          <h1 className="line-2 mt-4 text-6xl font-bold tracking-wide">
-            GNANA GANGOTHRI VIDYALAYA SCHOOL
+          <h1
+            data-line="2"
+            className={`${lilita.className} mt-4 text-6xl font-bold tracking-wide`}
+          >
+            GNANA GANGOTHRI Vidyalaya
+            <span className="block text-3xl mt-2">SCHOOL</span>
           </h1>
-          <p className="line-3 mt-6 text-sm tracking-widest opacity-70">
+          <p data-line="3" className="mt-6 text-sm tracking-widest opacity-70">
             Knowledge • Discipline • Success
           </p>
         </div>
