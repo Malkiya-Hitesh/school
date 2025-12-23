@@ -14,45 +14,49 @@ function HomeClient() {
   const titleRef = useRef(null)
   const buttonsRef = useRef(null)
 
+  const startAnimation2 = () => {
+    console.log('home event')
+
+    const ctx = gsap.context(() => {
+      // Gradient infinite animation
+      gsap.to(titleRef.current, {
+        backgroundPosition: '200% 50%',
+        duration: 3,
+        ease: 'linear',
+        repeat: -1,
+        yoyo: true,
+      })
+
+      // Entrance animation using fromTo
+      const tl = gsap.timeline()
+      tl.fromTo(
+        titleRef.current,
+        { y: -80, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
+      ).fromTo(
+        buttonsRef.current,
+        { scale: 0.4, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
+        '-=0.5'
+      )
+    }, containerRef)
+
+    return () => ctx.revert()
+  }
+
   useEffect(() => {
-    const runAnimation = () => {
-      const ctx = gsap.context(() => {
-        // Gradient infinite animation
-        gsap.to(titleRef.current, {
-          backgroundPosition: '200% 50%',
-          duration: 3,
-          ease: 'linear',
-          repeat: -1,
-          yoyo: true,
-        })
+    const handler = () => requestAnimationFrame(() => startAnimation2())
 
-        // Entrance animation
-        const tl = gsap.timeline()
-        tl.from(titleRef.current, {
-          y: -80,
-          opacity: 0,
-          duration: 1.5,
-          ease: 'power2.out',
-        }).from(
-          buttonsRef.current,
-          {
-            scale: 0.4,
-            opacity: 0,
-            duration: 1.2,
-            ease: 'power2.out',
-          },
-          '-=0.5'
-        )
-      }, containerRef)
+    // Listen for loaderFinished event
+    window.addEventListener('loaderFinished', handler)
 
-      return () => ctx.revert()
+    // Run immediately if loader already finished
+    if (sessionStorage.getItem('school-loader-done')) {
+      console.log('Loader already finished → running animation immediately')
+      handler()
     }
 
-   
-      window.addEventListener('loaderFinished', runAnimation)
-    
-
-    return () => window.removeEventListener('loaderFinished', runAnimation)
+    return () => window.removeEventListener('loaderFinished', handler)
   }, [])
 
   return (

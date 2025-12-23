@@ -3,30 +3,72 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import Loading from '@/app/loading'
+import { Lilita_One } from 'next/font/google'
+
+const lilita = Lilita_One({ subsets: ['latin'], weight: '400' })
 
 export default function SchoolLoader() {
   const loaderRef = useRef(null)
   const progressBarRef = useRef(null)
   const contentRef = useRef(null)
+  const hasFiredRef = useRef(false)
 
-  // waiting | progress | video | done
   const [phase, setPhase] = useState('waiting')
 
+  const log = (...args) => console.log('🟡 [LOADER]', ...args)
+
+  const fireLoaderFinished = () => {
+
+    if (hasFiredRef.current) {
+      log('❌ loaderFinished already fired, skipping')
+      return
+    }
+    hasFiredRef.current = true
+    log('✅ dispatch loaderFinished event')
+    window.dispatchEvent(new Event('loaderFinished'))
+  }
+
   /* ----------------------------------------
-     1️⃣ WAIT FOR FULL WEBSITE LOAD
+     1️⃣ ASSET WAIT
   ---------------------------------------- */
   useEffect(() => {
-    const handleLoad = () => {
+    log('mounted')
+
+    if (sessionStorage.getItem('school-loader-done')) {
+      log('sessionStorage found → skip loader')
+      fireLoaderFinished()
+      setPhase('done')
+      return
+    }
+
+    const waitForAssets = async () => {
+      log('waiting for fonts...')
+      if (document.fonts) {
+        await document.fonts.ready
+      }
+      log('fonts ready')
+
+      const images = Array.from(document.images)
+      log(`waiting for ${images.length} images`)
+
+      await Promise.all(
+        images.map((img, i) =>
+          img.complete
+            ? Promise.resolve()
+            : new Promise(res => {
+              img.onload = img.onerror = () => {
+                log(`image loaded: ${img.src || i}`)
+                res()
+              }
+            })
+        )
+      )
+
+      log('all assets loaded → phase = progress')
       setPhase('progress')
     }
 
-    if (document.readyState === 'complete') {
-      handleLoad()
-    } else {
-      window.addEventListener('load', handleLoad)
-    }
-
-    return () => window.removeEventListener('load', handleLoad)
+    waitForAssets()
   }, [])
 
   /* ----------------------------------------
@@ -34,63 +76,99 @@ export default function SchoolLoader() {
   ---------------------------------------- */
   useEffect(() => {
     if (phase !== 'progress') return
+    if (!progressBarRef.current) {
+      log('❌ progressBarRef missing')
+      return
+    }
 
-    gsap.fromTo(
-      progressBarRef.current,
-      { width: '0%' },
-      {
-        width: '100%',
-        duration: 2.5,
-        ease: 'power1.inOut',
-        onComplete: () => setPhase('video'),
-      }
-    )
+    log('progress animation start')
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        progressBarRef.current,
+        { width: '0%' },
+        {
+          width: '100%',
+          duration: 2,
+          ease: 'power1.inOut',
+          onComplete: () => {
+
+            log('progress complete → phase = video')
+            setPhase('video')
+          },
+        }
+      )
+    }, loaderRef)
+
+    return () => {
+      log('cleanup progress animation')
+      ctx.revert()
+    }
   }, [phase])
 
   /* ----------------------------------------
-     3️⃣ VIDEO / TEXT ANIMATION
+     3️⃣ VIDEO / INTRO
   ---------------------------------------- */
   useEffect(() => {
     if (phase !== 'video') return
+    if (!contentRef.current) {
+      log('❌ contentRef missing')
+      return
+    }
 
-    const tl = gsap.timeline()
+    log('video animation start')
 
-    tl.from('.line-1', { y: 60, opacity: 0, duration: 1 })
-      .from('.line-2', { y: 80, opacity: 0, duration: 1.3 }, '-=0.6')
-      .from('.line-3', { opacity: 0, duration: 1 }, '-=0.8')
-      .to(contentRef.current, { scale: 1.15, duration: 1.6 })
-      .to(loaderRef.current, {
-        y: '-100%',
-        duration: 1.6,
-        ease: 'power4.inOut',
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
         onComplete: () => {
+          log('video animation complete')
+          fireLoaderFinished()
+          sessionStorage.setItem('school-loader-done', 'true')
+
           setPhase('done')
-          window.dispatchEvent(new Event('loaderFinished'))
         },
       })
 
-    return () => tl.kill()
+      tl.from('[data-line="1"]', { y: 60, opacity: 0, duration: 0.9 })
+        .from('[data-line="2"]', { y: 80, opacity: 0, duration: 1.1 }, '-=0.5')
+        .from('[data-line="3"]', { opacity: 0, duration: 0.8 }, '-=0.6')
+        .to(contentRef.current, { scale: 1.1, duration: 1.2 })
+        .to(loaderRef.current, {
+          y: '-100%',
+          duration: 1.2,
+          ease: 'power4.inOut',
+        })
+    }, loaderRef)
+
+    return () => {
+      log('cleanup video animation')
+      ctx.revert()
+    }
   }, [phase])
 
   /* ----------------------------------------
-     4️⃣ STATES
+     4️⃣ RENDER
   ---------------------------------------- */
 
-  // ⏳ Simple spinner till full load
+  log('render → phase:', phase)
+
   if (phase === 'waiting') {
     return (
-      <div className="fixed inset-0 z-[9] flex items-center justify-center bg-white">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white">
         <Loading />
       </div>
     )
   }
 
-  if (phase === 'done') return null
+  if (phase === 'done') {
+    log('loader unmounted')
+    return null
+  }
 
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center  bg-[#08192b] overflow-hidden"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#08192b] overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#08192b] via-[#0f2c4d] to-[#08192b]" />
 
@@ -100,11 +178,7 @@ export default function SchoolLoader() {
             Preparing Your Learning Experience
           </p>
           <div className="h-[3px] w-full bg-white/20 overflow-hidden">
-            <div
-              ref={progressBarRef}
-              className="h-full bg-white"
-              style={{ width: '0%' }}
-            />
+            <div ref={progressBarRef} className="h-full bg-white" />
           </div>
         </div>
       )}
@@ -114,13 +188,15 @@ export default function SchoolLoader() {
           <h1 data-line="1" className="text-sm tracking-[0.35em] opacity-90">
             WELCOME TO
           </h1>
+
           <h1
             data-line="2"
             className={`${lilita.className} mt-4 text-6xl font-bold tracking-wide`}
           >
-            GNANA GANGOTHRI Vidyalaya
+            GNANA GANGOTHRI
             <span className="block text-3xl mt-2">SCHOOL</span>
           </h1>
+
           <p data-line="3" className="mt-6 text-sm tracking-widest opacity-70">
             Knowledge • Discipline • Success
           </p>

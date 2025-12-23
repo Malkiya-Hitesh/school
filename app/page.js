@@ -43,7 +43,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      {/* Loader (temporary – later make state based) */}
+     
       <SchoolLoader />
 
       <main id="main-content">

@@ -48,8 +48,7 @@ function AchievementCard() {
     }, containerRef)
 
     return () => {
-      ctx.revert()           // 🔥 removes inline GSAP styles
-      ScrollTrigger.kill()   // 🔥 kills all triggers
+      ctx.revert()         
     }
   }, [])
 
