@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import Button from './ui/Button'
+import Button from '../ui/Button'
 import Image from 'next/image'
 import gsap from 'gsap'
 import AchievementCard from './AchievementCard'
@@ -13,13 +13,21 @@ function HomeClient() {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const buttonsRef = useRef(null)
+ const animatedRef = useRef(false)
 
-  const startAnimation2 = () => {
-    console.log('home event')
 
-    const ctx = gsap.context(() => {
-      // Gradient infinite animation
-      gsap.to(titleRef.current, {
+
+  
+
+  useEffect(() => {
+
+ const runAnimation = () => {
+      if (animatedRef.current) return
+      animatedRef.current = true
+
+      const ctx = gsap.context(() => {
+
+ gsap.to(titleRef.current, {
         backgroundPosition: '200% 50%',
         duration: 3,
         ease: 'linear',
@@ -40,12 +48,10 @@ function HomeClient() {
         '-=0.5'
       )
     }, containerRef)
+   return () => ctx.revert()
+    }
 
-    return () => ctx.revert()
-  }
-
-  useEffect(() => {
-    const handler = () => requestAnimationFrame(() => startAnimation2())
+    const handler = () => requestAnimationFrame(() => runAnimation())
 
     // Listen for loaderFinished event
     window.addEventListener('loaderFinished', handler)

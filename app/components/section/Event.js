@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import H1 from './ui/H1'
+import H1 from '../ui/H1'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

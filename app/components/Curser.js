@@ -3,40 +3,41 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 export default function Cursor() {
-  const dot = useRef(null)
-  const ring = useRef(null)
+  const dotRef = useRef(null)
+  const ringRef = useRef(null)
 
   useEffect(() => {
-    // ❌ disable on touch devices
+    // ❌ Disable on touch devices
     if (window.matchMedia('(pointer: coarse)').matches) return
 
-    const ctx = gsap.context(() => {
-      const move = (e) => {
-        gsap.to(dot.current, {
-          x: e.clientX,
-          y: e.clientY,
-          overwrite: true,
-          duration: 0.2
-        })
-        gsap.to(ring.current, {
-          x: e.clientX,
-          y: e.clientY,
-          overwrite: true,
-          duration: 0.35
-        })
-      }
+    const dot = dotRef.current
+    const ring = ringRef.current
+    if (!dot || !ring) return
 
-      window.addEventListener('mousemove', move)
-      return () => window.removeEventListener('mousemove', move)
-    })
+    // 🚀 High-performance setters
+    const setDotX = gsap.quickTo(dot, 'x', { duration: 0.15, ease: 'power3.out' })
+    const setDotY = gsap.quickTo(dot, 'y', { duration: 0.15, ease: 'power3.out' })
+    const setRingX = gsap.quickTo(ring, 'x', { duration: 0.3, ease: 'power3.out' })
+    const setRingY = gsap.quickTo(ring, 'y', { duration: 0.3, ease: 'power3.out' })
 
-    return () => ctx.revert()
+    const move = (e) => {
+      setDotX(e.clientX)
+      setDotY(e.clientY)
+      setRingX(e.clientX)
+      setRingY(e.clientY)
+    }
+
+    window.addEventListener('mousemove', move)
+
+    return () => {
+      window.removeEventListener('mousemove', move)
+    }
   }, [])
 
   return (
     <>
-      <div className="cursor-ring" ref={ring} />
-      <div className="cursor-dot" ref={dot} />
+      <div ref={ringRef} className="cursor-ring" />
+      <div ref={dotRef} className="cursor-dot" />
     </>
   )
 }

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import H1 from './ui/H1'
+import H1 from '../ui/H1'
 
 gsap.registerPlugin(ScrollTrigger)
 

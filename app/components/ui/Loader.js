@@ -122,8 +122,8 @@ export default function SchoolLoader() {
       const tl = gsap.timeline({
         onComplete: () => {
           log('video animation complete')
-          fireLoaderFinished()
-          sessionStorage.setItem('school-loader-done', 'true')
+         sessionStorage.setItem('school-loader-done', 'true')
+fireLoaderFinished()
 
           setPhase('done')
         },

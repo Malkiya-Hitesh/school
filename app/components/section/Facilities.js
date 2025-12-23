@@ -1,6 +1,6 @@
 import React from 'react'
-import FacilitieCard from './FacilitieCard'
-import H1 from './ui/H1'
+import FacilitieCard from '../FacilitieCard'
+import H1 from '../ui/H1'
 
 function Facilities() {
     return (

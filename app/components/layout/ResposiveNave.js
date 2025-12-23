@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react';
-import NavButoon from './ui/NavButoon'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HiXMark } from "react-icons/hi2";
 import { NavLink } from './NavbarClient';
+import NavButoon from '../ui/NavButoon';
 // import NavDropdown from './ui/NavDropdown';
 
 function ResposiveNave() {

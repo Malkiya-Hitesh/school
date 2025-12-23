@@ -1,35 +1,35 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from "react";
-
-import Achievement from "./components/Achievement";
-import Choose from "./components/Choose";
-import Programs from "./components/Programs";
-import Home from "./components/Home";
+import Achievement from "./components/section/Achievement";
+import EventSection from "./components/section/Event";
+import Home from "./components/section/Home";
+import Programs from "./components/section/Programs";
 import SchoolLoader from "./components/ui/Loader";
-import Loading from "./loading";
+import Fqa from "./components/section/Fqa";
+import ContactSection from "./components/section/ContactSection";
+import TeachersSection from "./components/section/Teachers";
+import Choose from "./components/section/Choose";
+import StatsSection from "./components/section/StatsSection";
+import TimelineSection from "./about/components/TimelineSection";
 
 export default function PageClient() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // loader duration
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loading />;
-
   return (
     <>
       <SchoolLoader />
-      <Home />
-      <Achievement />
-      <Programs />
-      <Choose />
-      {/* <Facilities /> */}
+
+      <main id="main-content">
+        <section id="home"><Home /></section>
+        <section id="achievement"><Achievement /></section>
+       
+        <section id="programs"><Programs /></section>
+        <section id="stats"><StatsSection /> </section>
+        <section id="choose"><Choose /></section>
+        <section id="events"><EventSection /></section>
+         <section id="timeline"><TimelineSection /></section>
+        <section id="teachers"><TeachersSection /></section>
+        <section id="faq"><Fqa /></section>
+        <section id="contact"><ContactSection /></section>
+      </main>
     </>
-  );
+  )
 }

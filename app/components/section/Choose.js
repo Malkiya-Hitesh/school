@@ -10,7 +10,7 @@ import {
   Sparkles,
   HeartHandshake,
 } from 'lucide-react'
-import H1 from './ui/H1'
+import H1 from '../ui/H1'
 
 gsap.registerPlugin(ScrollTrigger)
 

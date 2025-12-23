@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useRef } from 'react'
 import Lenis from '@studio-freight/lenis'
 import gsap from 'gsap'
@@ -7,7 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SmoothScrollProvider({ children }) {
-  const lenisRef = useRef(null)
   const rafId = useRef(null)
 
   useEffect(() => {
@@ -15,9 +15,27 @@ export default function SmoothScrollProvider({ children }) {
       smooth: true,
       lerp: 0.08,
       wheelMultiplier: 0.8,
+      syncTouch: true,
     })
 
-    lenisRef.current = lenis
+    // 🔗 GSAP ↔ Lenis
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (arguments.length) {
+          lenis.scrollTo(value, { immediate: true })
+        }
+        return lenis.scroll
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        }
+      },
+      pinType: document.body.style.transform ? 'transform' : 'fixed',
+    })
 
     const raf = (time) => {
       lenis.raf(time)
@@ -27,15 +45,12 @@ export default function SmoothScrollProvider({ children }) {
 
     lenis.on('scroll', ScrollTrigger.update)
 
-    // ⏳ layout stable hone do
-    requestAnimationFrame(() => {
-      ScrollTrigger.refresh()
-    })
+    setTimeout(() => ScrollTrigger.refresh(), 300)
 
     return () => {
       cancelAnimationFrame(rafId.current)
-      lenis.off('scroll', ScrollTrigger.update)
       lenis.destroy()
+      ScrollTrigger.killAll(false)
     }
   }, [])
 

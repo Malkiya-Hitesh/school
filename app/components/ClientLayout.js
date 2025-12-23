@@ -1,17 +1,25 @@
 'use client'
+
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
+import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Navbar from "./Navbar"
+
 import SmoothScrollProvider from "./LenisProvider"
 import Cursor from "./Curser"
-import Footer from "./Footer"
+import Footer from "./layout/Footer"
+import Navbar from "./layout/Navbar"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname()
 
   useEffect(() => {
-    ScrollTrigger.refresh()
+    // Wait for DOM + layout
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh(true)
+    })
   }, [pathname])
 
   return (
