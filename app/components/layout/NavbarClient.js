@@ -64,24 +64,24 @@ export default function NavbarClient() {
 
 
   return (
-    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1fr] w-[100vw] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] pr-[2rem] max-[640px]:pr-[1.5rem] items-center bg-[var(--color-border)] fixed top-0 mb-2'>
+    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1.5fr] w-[100vw] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem]   items-center bg-[var(--color-border)] fixed top-0 mb-2 pr-2'>
 
-      <div className='flex justify-start '>
+      <div className='flex justify-start items-center  '>
         <Image
           className='logo-img min-[1024px]:w-[40%] w-[60%] max-[640px]:w-[70%] max-[450px]:w-[85%] min-[1024px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem] object-contain  cursor-pointer '
           src='/image/logo.png'
-          width={1000000}
+          width={100}
           height={100}
           alt='logo'
         />
 
       </div>
-      <div className='flex nav-link items-center gap-5 justify-end max-[1024]:hidden' >
+      <div className='flex nav-link items-center gap-6 justify-end max-[1024]:hidden' >
         <NavLink h={"/"} data={"home"} />
         <NavLink h={"/about"} data={"about"} />
         <NavLink h={"/Alumini"} data={"alumini"} />
-        <NavLink h={"/notice"} data={"notice"} />
-        <NavLink h={"/gallery"} data={"gallery"} />
+        <NavLink h={"/academics"} data={"academics"} />
+        <NavLink h={"/faculty"} data={"faculty"} />
         <Link href={"/contact"}>
           <NavButoon theme={"dark"}>contact</NavButoon>
         </Link>

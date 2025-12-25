@@ -84,7 +84,7 @@ function HomeClient() {
             className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8"
           >
             <Button theme="light">Admission Now</Button>
-            <Button theme="dark">Contact Us</Button>
+            <Button theme="dark">Joing SSLC</Button>
           </div>
 
           <div className="w-[90vw] h-auto">

@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const baloo = Baloo_2({ subsets: ["latin"], weight: "700" })
 
-function H1({ data }) {
+function H1({ data, className }) {
   const headingRef = useRef(null)
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function H1({ data }) {
   return (
     <h1
       ref={headingRef}
-      className={`${baloo.className} text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
+      className={`${baloo.className} ${className} text-5xl font-bold  bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
     >
       {data}
     </h1>

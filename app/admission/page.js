@@ -1,67 +1,28 @@
+// app/admissions/page.js
 'use client'
-import { useState } from 'react';
-export default function AdmissionPage() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-    });
-    const [success, setSuccess] = useState('');
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+import React from 'react'
+import AdmissionsHero from './components/AdmissionsHero'
+import AdmissionProcess from './components/AdmissionProcess'
+import RequiredDocuments from './components/RequiredDocuments'
+import AdmissionsCTA from './components/AdmissionsCTA'
+import Faq from './components/Faq'
+import Programs from './components/Programs'
+import AdmissionForm from './components/AdmissionForm'
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        console.log(formData);
-        setSuccess('Admission form submitted successfully!');
-        setFormData({ name: '', email: '', phone: '' });
-    };
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-            <form
-                onSubmit={handleSubmit}
-                className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
-            >
-                <h2 className="text-2xl font-bold mb-4">Admission Form</h2>
-                {success && <p className="text-green-600 mb-4">{success}</p>}
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Full Name"
-                    className="w-full p-2 mb-3 border rounded"
-                    required
-                />
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    className="w-full p-2 mb-3 border rounded"
-                    required
-                />
-                <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Phone Number"
-                    className="w-full p-2 mb-3 border rounded"
-                    required
-                />
-                <button
-                    type="submit"
-                    className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition"
-                >
-                    Submit
-                </button>
-            </form>
-        </div>
-    );
+const AdmissionsPage = () => {
+  return (
+    <main className="min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]">
+      <AdmissionsHero />
+      <Programs />
+      <AdmissionProcess />
+      <RequiredDocuments />
+      <AdmissionForm />
+      <Faq />
+      <AdmissionsCTA />
+    </main>
+  )
 }
+
+export default AdmissionsPage

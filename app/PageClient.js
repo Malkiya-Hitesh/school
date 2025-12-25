@@ -11,6 +11,7 @@ import TeachersSection from "./components/section/Teachers";
 import Choose from "./components/section/Choose";
 import StatsSection from "./components/section/StatsSection";
 import TimelineSection from "./about/components/TimelineSection";
+import Admission from "./components/Admission";
 
 export default function PageClient() {
   return (
@@ -20,12 +21,12 @@ export default function PageClient() {
       <main id="main-content">
         <section id="home"><Home /></section>
         <section id="achievement"><Achievement /></section>
-       
-        <section id="programs"><Programs /></section>
         <section id="stats"><StatsSection /> </section>
+          <section id="timeline"><TimelineSection /></section>
+        <section id="programs"><Programs /></section>
         <section id="choose"><Choose /></section>
         <section id="events"><EventSection /></section>
-         <section id="timeline"><TimelineSection /></section>
+     
         <section id="teachers"><TeachersSection /></section>
         <section id="faq"><Fqa /></section>
         <section id="contact"><ContactSection /></section>

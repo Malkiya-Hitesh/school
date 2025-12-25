@@ -1,95 +1,118 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { HiXMark } from "react-icons/hi2";
-import { NavLink } from './NavbarClient';
-import NavButoon from '../ui/NavButoon';
-// import NavDropdown from './ui/NavDropdown';
+import { HiXMark } from "react-icons/hi2"
+import gsap from 'gsap'
+import Link from 'next/link'
+import NavButoon from '../ui/NavButoon'
+import { NavLink } from './NavbarClient'
 
 function ResposiveNave() {
-    let [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false)
+  const menuRef = useRef(null)
 
-    const toggleMenu = () => {
-        setMenu(!menu)
-    }
+  const toggleMenu = () => setMenu(prev => !prev)
 
-    return (
-        <>
-            <div className='max-[640px]:hidden'>
-                <NavButoon theme={"dark"}>contact</NavButoon>
+  useEffect(() => {
+    if (!menu) return
 
-            </div>
-            <div className='max-[640px]:hidden'>
-                <NavButoon theme={"light"}>admission</NavButoon>
-            </div>
-            <GiHamburgerMenu
-                onClick={toggleMenu}
-                className='text-[1.35rem] max-[640px]:text-[1.8rem] cursor-pointer'
-            />
+    const ctx = gsap.context(() => {
+      const links = gsap.utils.toArray('.nav-item')
 
-            {/* BACKDROP */}
-            <div
-                className={`
-                    fixed inset-0 bg-black/40 backdrop-blur-sm z-40
-                    transition-opacity duration-300
-                    ${menu ? "opacity-100 visible" : "opacity-0 invisible"}
-                `}
-                onClick={toggleMenu}
-            ></div>
+      gsap.fromTo(
+        links,
+        { x: -40, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+        }
+      )
+    }, menuRef)
 
-            {/* MENU PANEL */}
-            <div
-                className={`
-                    fixed top-0 left-0 h-full w-[60%]
-                    bg-[var(--color-bg)]
-                    flex flex-col items-center py-10 gap-6 z-50
-                    transition-all duration-300 ease-in-out
-                    ${menu ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}
-                `}
-            >
-                <HiXMark
-                    onClick={toggleMenu}
-                    className='text-[2.35rem] cursor-pointer absolute top-3 right-5'
-                />
+    return () => ctx.revert()
+  }, [menu])
 
+  return (
+    <>
+      {/* Desktop Buttons */}
+      <div className='navLink max-[640px]:hidden'>
+        <Link href="/contact">
+          <NavButoon theme="dark">contact</NavButoon>
+        </Link>
+      </div>
 
-                <div onClick={toggleMenu}>
-                    <NavLink h={"/"} data={"home"} />
-                </div>
-                <div onClick={toggleMenu}>
+      <div className='navLink max-[640px]:hidden'>
+        <Link href="/admission">
+          <NavButoon theme="light">admission</NavButoon>
+        </Link>
+      </div>
 
-                    <NavLink h={"/about"} data={"about"} />
-                </div>
-                <div onClick={toggleMenu}>
-                    <NavLink h={"/Alumini"} data={"alumini"} />
-                </div>
-                <div onClick={toggleMenu}>
+      {/* Hamburger */}
+      <GiHamburgerMenu
+        onClick={toggleMenu}
+        className='text-[1.35rem] max-[640px]:text-[1.8rem] cursor-pointer'
+      />
 
-                    <NavLink h={"/notice"} data={"notice"} />
-                </div>
-                <div onClick={toggleMenu}>
-                    <NavLink h={"/gallery"} data={"gallery"} />
-                </div>
+      {/* Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity ${
+          menu ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+        onClick={toggleMenu}
+      />
 
+      {/* Menu Panel */}
+      <div
+        ref={menuRef}
+        className={`fixed top-0 left-0 h-full w-[60%] bg-[var(--color-bg)]
+        flex flex-col items-center py-10 gap-6 z-50 transition-all duration-300
+        ${menu ? 'translate-x-0' : '-translate-x-full'}`}
+      >
+        <HiXMark
+          onClick={toggleMenu}
+          className='nav-item text-[2.35rem] cursor-pointer absolute top-3 right-5'
+        />
 
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/" data="home" />
+        </div>
 
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/about" data="about" />
+        </div>
 
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/alumini" data="alumini" />
+        </div>
 
-                <div onClick={toggleMenu}>
-                    <NavButoon theme={"dark"}>contact</NavButoon>
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/notice" data="notice" />
+        </div>
 
-                </div>
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/academics" data="academics" />
+        </div>
+        <div onClick={toggleMenu} className="nav-item">
+          <NavLink h="/faculty" data="faculty" />
+        </div>
 
-                <div onClick={toggleMenu}>
-                    <NavButoon theme={"light"}>admission</NavButoon>
-                </div>
-            </div>
-        </>
-    )
+        <div onClick={toggleMenu} className="nav-item">
+          <Link href="/contact">
+            <NavButoon theme="dark">contact</NavButoon>
+          </Link>
+        </div>
+
+        <div onClick={toggleMenu} className="nav-item">
+          <Link href="/admission">
+            <NavButoon theme="light">admission</NavButoon>
+          </Link>
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default ResposiveNave;
-
-
-
-
+export default ResposiveNave

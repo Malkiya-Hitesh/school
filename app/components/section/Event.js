@@ -46,6 +46,7 @@ export default function EventSection() {
             start: 'top bottom',
             end: 'bottom top',
             scrub: 0.5,
+            
           },
         })
           .fromTo(
@@ -56,9 +57,10 @@ export default function EventSection() {
              
             },
             {
-              scale: 1.4,
+              scale: 1.3,
               opacity: 1,
               ease: 'none',
+              delay: 0.1,
             }
           )
           .to(image, {

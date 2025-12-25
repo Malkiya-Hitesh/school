@@ -36,7 +36,7 @@ export default function AdmissionForm() {
   };
 
   return (
-    <div
+<div
   style={{
     minHeight: '100vh',
     display: 'flex',
@@ -81,7 +81,6 @@ export default function AdmissionForm() {
     >
       Please fill all required details carefully
     </p>
-
 
         <form onSubmit={handleSubmit}>
           {/* Student Name */}
@@ -131,7 +130,7 @@ export default function AdmissionForm() {
 
           {/* Gender */}
           <label htmlFor="gender" style={labelStyle}>Gender</label>
-          <select
+          <select 
             id="gender"
             style={inputStyle}
             name="gender"
@@ -223,9 +222,7 @@ export default function AdmissionForm() {
 >
   Submit Admission
 </button>
-
-
-        </form>
+       </form>
       </div>
     </div>
   );
@@ -239,6 +236,8 @@ const labelStyle = {
   fontWeight: 'bold',
   color: '#1e3a8a',
 };
+
+
 
 const inputStyle = {
   width: '100%',

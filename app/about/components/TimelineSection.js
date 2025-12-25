@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Star, Trophy, Users, BookOpen } from 'lucide-react'
+import H1 from '@/app/components/ui/H1'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,11 +29,15 @@ export default function TimelineSection() {
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 10%',
+          start: 'top 15%',
           end: () => `+=${scrollLength}`,
           scrub: 1,
           pin: true,
           anticipatePin: 1,
+
+
+
+         
         },
       })
     }, sectionRef)
@@ -41,11 +46,12 @@ export default function TimelineSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative h-screen bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden">
-      <h2 className="absolute top-10 left-1/2 -translate-x-1/2 text-4xl font-bold text-blue-700 z-10">
-        School Growth Timeline
-      </h2>
+    
+  <section ref={sectionRef} className="relative h-screen bg-gradient-to-r from-blue-50 to-blue-100 overflow-hidden flex flex-col items-center mt-3 gap-10">
 
+            <div className='absolute top-10 left-1/2 -translate-x-1/2 text-4xl font-bold text-blue-700 z-10'>
+                <H1 data="School Growth Timeline" />
+            </div>
       <div className="absolute inset-0 flex items-center">
         <div ref={trackRef} className="flex gap-12 px-20">
           {milestones.map((m, i) => {
