@@ -8,36 +8,49 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function SmoothScrollProvider({ children }) {
-  const lenisRef = useRef(null)
+  const rafId = useRef(null)
 
   useEffect(() => {
-    // 1️⃣ Create Lenis instance
     const lenis = new Lenis({
       smooth: true,
-      lerp: 0.1,          // smoothness (0.08–0.12 best)
-      wheelMultiplier: 1,
-      syncTouch: true,    // mobile support
-      smoothTouch: false // better performance
+      lerp: 0.8,
+      
+      syncTouch: false,
     })
 
-    lenisRef.current = lenis
+    // 🔗 GSAP ↔ Lenis
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (arguments.length) {
+          lenis.scrollTo(value, { immediate: true })
+        }
+        return lenis.scroll
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        }
+      },
+      pinType: document.body.style.transform ? 'transform' : 'fixed',
+    })
 
-    // 2️⃣ RAF loop
-    function raf(time) {
+    const raf = (time) => {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId.current = requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf)
+    rafId.current = requestAnimationFrame(raf)
 
-    // 3️⃣ Sync Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update)
 
-    // 4️⃣ Refresh ScrollTrigger after mount
-    ScrollTrigger.refresh()
+    setTimeout(() => ScrollTrigger.refresh(), 300)
 
-    // 5️⃣ Cleanup
     return () => {
+      cancelAnimationFrame(rafId.current)
       lenis.destroy()
+      ScrollTrigger.killAll(false)
     }
   }, [])
 

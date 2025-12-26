@@ -44,7 +44,7 @@ useEffect(() => {
       {
         opacity: 1,
         scale: 1,
-        stagger: 0.08,
+        stagger: 0.09,
         ease: 'none',
         scrollTrigger: {
           trigger: '.grids',

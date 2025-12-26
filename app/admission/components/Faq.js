@@ -1,9 +1,9 @@
 'use client'
+
 import React, { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import H1 from '@/app/components/ui/H1'
-
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -50,61 +50,105 @@ const faqs = [
   }
 ]
 
+export default function Faq() {
+  const sectionRef = useRef(null)
+  const contentRefs = useRef([])
+  const [active, setActive] = useState(null)
 
-export default function Fqa() {
-    const sectionRef = useRef(null)
-    const [active, setActive] = useState(null)
+  // 🔹 Scroll reveal animation
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const items = gsap.utils.toArray(sectionRef.current.children)
 
-    useEffect(() => {
-        gsap.from(sectionRef.current.children, {
-            opacity: 0,
-            y: 60,
-            stagger: 0.15,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'top 80%',
-            },
-        })
-    }, [])
+      gsap.from(items, {
+        opacity: 0,
+        y: 60,
+        stagger: 0.12,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+        },
+      })
 
-    return (
-        <section className="bg-white py-10 flex flex-col items-center mt-3 gap-10">
-            <div>
-                <H1 data="Frequently Asked Questions" />
+      // Set accordion initial state
+      contentRefs.current.forEach(el => {
+        gsap.set(el, { height: 0, opacity: 0 })
+      })
+    })
+
+    return () => ctx.revert()
+  }, [])
+
+  // 🔹 Accordion toggle
+  const toggleItem = index => {
+    if (active === index) {
+      gsap.to(contentRefs.current[index], {
+        height: 0,
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.inOut',
+      })
+      setActive(null)
+      return
+    }
+
+    if (active !== null) {
+      gsap.to(contentRefs.current[active], {
+        height: 0,
+        opacity: 0,
+        duration: 0.25,
+        ease: 'power2.inOut',
+      })
+    }
+
+    gsap.to(contentRefs.current[index], {
+      height: 'auto',
+      opacity: 1,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+
+    setActive(index)
+  }
+
+  return (
+    <section className="bg-white py-10 flex flex-col items-center mt-3 gap-10">
+      <div>
+        <H1 data="Frequently Asked Questions" />
+      </div>
+
+      <div
+        ref={sectionRef}
+        className="max-w-3xl mx-auto mt-12 space-y-4 px-4 w-full"
+      >
+        {faqs.map((item, i) => (
+          <div
+            key={i}
+            className="bg-white border rounded-xl overflow-hidden"
+          >
+            <button
+              onClick={() => toggleItem(i)}
+              className="w-full flex justify-between items-center p-5 text-left"
+            >
+              <span className="font-semibold text-lg">
+                {item.q}
+              </span>
+              <span className="text-2xl leading-none">
+                {active === i ? '−' : '+'}
+              </span>
+            </button>
+
+            <div
+              ref={el => (contentRefs.current[i] = el)}
+              className="px-5 text-gray-600 overflow-hidden"
+            >
+              <p className="pb-4">{item.a}</p>
             </div>
-            <div ref={sectionRef} className="max-w-3xl mx-auto mt-12 space-y-4 px-4">
-                {faqs.map((item, i) => (
-                    <div
-                        key={i}
-                        className="bg-white border rounded-xl overflow-hidden"
-                    >
-                        <button
-                            onClick={() => setActive(active === i ? null : i)}
-                            className="w-full flex justify-between items-center p-5 text-left"
-                        >
-                            <span className="font-semibold text-lg">
-                                {item.q}
-                            </span>
-                            <span className="text-2xl">
-                                {active === i ? '−' : '+'}
-                            </span>
-                        </button>
-
-                        <div
-                            className="px-5 text-gray-600 transition-all duration-300"
-                            style={{
-                                maxHeight: active === i ? '200px' : '0px',
-                                opacity: active === i ? 1 : 0,
-                                paddingBottom: active === i ? '16px' : '0px',
-                            }}
-                        >
-                            {item.a}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </section>
-    )
+          </div>
+        ))}
+      </div>
+    </section>
+  )
 }
