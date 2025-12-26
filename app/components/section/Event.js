@@ -18,61 +18,49 @@ const images = [
   { row: 5, col: 1, img: '/image/11.webp' },
   { row: 5, col: 3, img: '/image/18.webp' },
   { row: 5, col:5, img: '/image/10.webp' },
-  { row: 6, col: 2, img: '/image/11.webp' },
-  { row: 6, col: 4, img: '/image/12.webp' },
-  { row: 7, col: 1, img: '/image/13.webp' },
-  { row: 7, col: 3, img: '/image/14.webp' },
-  { row: 7, col: 5, img: '/image/15.webp' },
-  { row: 8, col: 2, img: '/image/16.webp' },
-  { row: 8, col: 4, img: '/image/17.webp' },
-  { row: 9, col: 1, img: '/image/18.webp' },
-  { row: 9, col: 3, img: '/image/19.webp' },
-  { row: 9, col: 5, img: '/image/20.webp' },
+  // { row: 6, col: 2, img: '/image/11.webp' },
+  // { row: 6, col: 4, img: '/image/12.webp' },
+  // { row: 7, col: 1, img: '/image/13.webp' },
+  // { row: 7, col: 3, img: '/image/14.webp' },
+  // { row: 7, col: 5, img: '/image/15.webp' },
+  // { row: 8, col: 2, img: '/image/16.webp' },
+  // { row: 8, col: 4, img: '/image/17.webp' },
+  // { row: 9, col: 1, img: '/image/18.webp' },
+  // { row: 9, col: 3, img: '/image/19.webp' },
+  // { row: 9, col: 5, img: '/image/20.webp' },
 ]
 
 export default function EventSection() {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger)
 
-    const ctx = gsap.context(() => {
-      const gridItems = gsap.utils.toArray('.grids .grid')
+  const ctx = gsap.context(() => {
+    const images = gsap.utils.toArray('.grid-img')
 
-      gridItems.forEach((item) => {
-        const image = item.querySelector('.grid-img')
+    gsap.fromTo(
+      images,
+      {
+        opacity: 0,
+       scale:0.85
+      },
+      {
+        opacity: 1,
+        scale:1.1,
+        stagger: 0.08,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.grids',
+          start: 'top bottom',
+          end: 'bottom 30%',
+          markers: true,
+          scrub: 0.5,   
+        },
+      }
+    )
+  })
 
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.5,
-            
-          },
-        })
-          .fromTo(
-            image,
-            {
-              scale: 0,
-              opacity: 0,
-             
-            },
-            {
-              scale: 1.3,
-              opacity: 1,
-              ease: 'none',
-              delay: 0.1,
-            }
-          )
-          .to(image, {
-            scale: 0,
-            opacity: 0,
-            ease: 'none',
-          })
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
+  return () => ctx.revert()
+}, [])
 
   return (
     <section className="bg-white py-10 flex flex-col items-center mt-3 gap-24">
@@ -82,11 +70,11 @@ export default function EventSection() {
      
 
       {/* ✅ ADD REQUIRED CLASSES */}
-      <div className="grids  grid grid-cols-5 w-full min-h-[300vh]">
+      <div className="grids  grid grid-cols-5 w-full ">
         {images.map((item, index) => (
           <div
             key={index}
-            className="grid  will-change-transform"
+            className="grid-item will-change-transform"
             style={{
               gridColumn: item.col,
               gridRow: item.row,

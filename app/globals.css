@@ -79,3 +79,7 @@ h1, h2, h3, .home-head {
   border: 2px solid black;
   border-radius: 50%;
 }
+.grid-img {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

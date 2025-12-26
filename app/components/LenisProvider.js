@@ -14,11 +14,10 @@ export default function SmoothScrollProvider({ children }) {
     const lenis = new Lenis({
       smooth: true,
       lerp: 0.08,
-      wheelMultiplier: 0.8,
-      syncTouch: true,
+      syncTouch: false,
     })
 
-    // 🔗 GSAP ↔ Lenis
+   
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         if (arguments.length) {
