@@ -32,8 +32,6 @@ const images = [
 
 export default function EventSection() {
 useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
   const ctx = gsap.context(() => {
     const images = gsap.utils.toArray('.grid-img')
 
@@ -41,19 +39,18 @@ useEffect(() => {
       images,
       {
         opacity: 0,
-       scale:0.85
+        scale: 0.9,
       },
       {
         opacity: 1,
-        scale:1.1,
+        scale: 1,
         stagger: 0.08,
         ease: 'none',
         scrollTrigger: {
           trigger: '.grids',
-          start: 'top bottom',
+          start: 'top 85%',
           end: 'bottom 30%',
-          markers: true,
-          scrub: 0.5,   
+          scrub: 0.4,
         },
       }
     )
@@ -61,6 +58,7 @@ useEffect(() => {
 
   return () => ctx.revert()
 }, [])
+
 
   return (
     <section className="bg-white py-10 flex flex-col items-center mt-3 gap-24">
