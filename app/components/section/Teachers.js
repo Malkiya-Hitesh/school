@@ -81,16 +81,16 @@ export default function TeachersSection() {
       <div className="w-full overflow-x-auto pt-11 pb-11 no-scrollbar">
         <div
           ref={trackRef}
-          className="flex gap-8 px-6 no-scrollbar"
+          className="flex min-[1048px]:gap-8 gap-6  max-[768px]:gap-4 max-[640px]:gap-2  px-6 no-scrollbar"
           style={{ willChange: 'transform' }}
         >
           {teachers.map((t, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="min-[1048px]:w-64  w-52 max-[768px]:w-44  max-[640px]:w-30  shrink-0  p-6 text-center bg-white "
+              className="min-[1048px]:w-58  w-48 max-[768px]:w-38  max-[640px]:w-28  shrink-0  p-6 text-center bg-white "
             >
-              <div className="min-[1048px]:w-28 min-[1048px]:h-28  w-24 h-24 max-[768px]:w-20 max-[768px]:h-20 max-[640px]:w-16 max-[640px]:h-16 mx-auto mb-4">
+              <div className=" aspect-square " >
                 <img
                   src={t.img}
                   alt={t.name}
@@ -99,10 +99,10 @@ export default function TeachersSection() {
                 />
               </div>
 
-              <h3 className="min-[1048px]:text-lg text-base max-[768px]:text-sm max-[640px]:text-xs font-semibold" style={{ color: 'var(--color-text)' }}>
+              <h3 className="min-[1048px]:text-lg text-base max-[768px]:text-sm  font-semibold" style={{ color: 'var(--color-text)' }}>
                 {t.name}
               </h3>
-              <p className="mt-1 font-medium min-[1048px]:text-base text-sm max-[768px]:text-xs max-[640px]:text-[10px]" style={{ color: 'var(--color-accent)' }}>
+              <p className="mt-1 font-medium min-[1048px]:text-base text-sm max-[768px]:text-xs " style={{ color: 'var(--color-accent)' }}>
                 {t.subject}
               </p>
             </div>
