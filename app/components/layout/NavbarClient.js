@@ -64,7 +64,7 @@ export default function NavbarClient() {
 
 
   return (
-    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1.8fr] w-[100vw] min-[1048px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem]   items-center bg-[var(--color-border)] fixed top-0 mb-2 '>
+    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1.8fr] w-[100vw] min-[1048px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem]   items-center bg-[var(--color-border)] fixed top-0 mb-2 pr-2'>
 
       <div className='flex justify-start items-center  '>
         <Image
