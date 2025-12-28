@@ -74,7 +74,7 @@ export default function TeachersSection() {
   return (
     <section className="min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3  flex flex-col items-center gap-8 bg-white">
       <div>
-        <H1 data="Meet Our Teachers" />
+        <H1 data="Our Teachers" />
       </div>
 
     
@@ -88,7 +88,7 @@ export default function TeachersSection() {
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="min-[1048px]:w-58  w-48 max-[768px]:w-38  max-[640px]:w-28  shrink-0  p-6 text-center bg-white "
+              className="min-[1048px]:w-58  w-48 max-[768px]:w-38  max-[640px]:w-50  shrink-0  p-6 text-center bg-white "
             >
               <div className=" aspect-square " >
                 <img
@@ -99,10 +99,10 @@ export default function TeachersSection() {
                 />
               </div>
 
-              <h3 className="text-[15px] sm:text-[17px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold" style={{ color: 'var(--color-text)' }}>
+              <h3 className="text-[20px] sm:text-[17px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold" style={{ color: 'var(--color-text)' }}>
                 {t.name}
               </h3>
-              <p className="mt-1 font-medium text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px]  xl:text-[18px]  " style={{ color: 'var(--color-accent)' }}>
+              <p className="mt-1 font-medium text-[15px] sm:text-[12px] md:text-[14px] lg:text-[16px]  xl:text-[18px]  " style={{ color: 'var(--color-accent)' }}>
                 {t.subject}
               </p>
             </div>

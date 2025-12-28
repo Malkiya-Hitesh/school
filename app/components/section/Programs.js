@@ -22,7 +22,7 @@ export default function Programs() {
           scrollTrigger: {
             trigger: item,
             start: 'top 85%',
-            end: 'top 40%',
+            end: 'top 50%',
 
             scrub: true,
             toggleActions: undefined
