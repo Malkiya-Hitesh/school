@@ -24,7 +24,7 @@ export default function PageClient() {
         <section  id="stats"><StatsSection /> </section>
           {/* <section  id="timeline"><TimelineSection /></section> */}
         <section   id="programs"><Programs /></section>
-        <section id="choose"><Choose /></section>
+        {/* <section id="choose"><Choose /></section> */}
         {/* <section id="events"><EventSection /></section> */}
      
         <section   id="teachers"><TeachersSection /></section>
