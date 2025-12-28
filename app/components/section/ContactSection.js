@@ -60,67 +60,38 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-white py-10 flex flex-col items-center mt-3 gap-10">
+    <section className="bg-white  flex flex-col items-center gap-8 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3">
       <div>
         <H1 data="Contact Us" />
       </div>
 
+
+
       <div
         ref={sectionRef}
-        className="max-w-5xl mx-auto mt-12 grid md:grid-cols-2 gap-10 px-4 w-full"
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 "
       >
-        {/* LEFT INFO */}
-        <div className="space-y-6">
-          <p className="text-lg text-gray-600">
-            Feel free to contact us for admissions or any queries.
-          </p>
 
-          <div className="flex items-start gap-4">
-            <FiMapPin className="text-xl mt-1 text-black" />
-            <div>
-              <h4 className="font-semibold">Address</h4>
-              <p className="text-gray-600">
-                Gnanagangothri Vidyalaya, Bengaluru
-              </p>
-            </div>
-          </div>
+        <div>
 
-          <div className="flex items-start gap-4">
-            <FiPhone className="text-xl mt-1 text-black" />
-            <div>
-              <h4 className="font-semibold">Phone</h4>
-              <p className="text-gray-600">+91 98765 43210</p>
-            </div>
-          </div>
+          <div className="flex items-start gap-8 flex-col justify-center ">
+            
+            <ContactInfo icon={FiMapPin} title="Address" detail="Gnanagangothri Vidyalaya, Bengaluru" />
+            <ContactInfo icon={FiPhone} title="Phone" detail="+91 98765 43210" />
+            <ContactInfo icon={FiMail} title="Email" detail="info@schoolname.com" />
+               
 
-          <div className="flex items-start gap-4">
-            <FiMail className="text-xl mt-1 text-black" />
-            <div>
-              <h4 className="font-semibold">Email</h4>
-              <p className="text-gray-600">info@schoolname.com</p>
-            </div>
           </div>
         </div>
 
-        {/* RIGHT FORM */}
         <form
           onSubmit={handleSubmit}
           className="bg-gray-50 p-6 rounded-2xl space-y-4"
         >
-          <input
-            name="name"
-            required
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/20"
-            placeholder="Your Name"
-          />
+          <ContInput name="name" placeholder="Your Name" type='text' />
+          <ContInput name="email" placeholder="Email Address" type='email' />
+          <ContInput name="number" placeholder="Your Number" type='tel' />
 
-          <input
-            name="email"
-            type="email"
-            required
-            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/20"
-            placeholder="Email Address"
-          />
 
           <textarea
             name="message"
@@ -149,3 +120,27 @@ export default function ContactSection() {
     </section>
   )
 }
+
+
+const ContInput = ({ name, placeholder, type = 'text' }) => {
+  return (
+    <input
+      name={name}
+      type={type}
+      required
+      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black/20"
+      placeholder={placeholder}
+    />
+  )
+}
+const ContactInfo = ({ icon: Icon, title, detail }) => {
+  return (
+    <div className="flex items-start gap-4 justify-center">  
+      <Icon className="font-semibold text-[14px] sm:text-[15px] md:text-[18px]  lg:text-[20px] xl:text-[22px] mt-1 text-blue-600" />
+      <div>
+        <h4 className="font-semibold text-[12px] sm:text-[13px] md:text-[16px]  lg:text-[18px] xl:text-[20px] ">{title}</h4>
+        <p className="text-gray-600 font-semibold text-[10px] sm:text-[11px] md:text-[14px]  lg:text-[16px] xl:text-[18px]">{detail}</p>
+      </div>
+    </div>
+  )
+} 

@@ -92,14 +92,14 @@ export default function Faq() {
   }
 
   return (
-    <section className="bg-white py-10 flex flex-col items-center mt-3 gap-10">
+    <section className="bg-white flex flex-col items-center  gap-10 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3">
       <div>
-        <H1 data="Frequently Asked Questions" />
+        <H1 data="FAQ " />
       </div>
 
       <div
         ref={sectionRef}
-        className="max-w-3xl mx-auto mt-12 space-y-4 px-4 w-full"
+        className="    flex flex-col gap-3 "
       >
         {faqs.map((item, i) => (
           <div
@@ -110,7 +110,7 @@ export default function Faq() {
               onClick={() => toggleItem(i)}
               className="w-full flex justify-between items-center p-5 text-left"
             >
-              <span className="font-semibold text-lg">{item.q}</span>
+              <span className="font-semibold text-[14px] sm:text-[15px] md:text-[18px]  lg:text-[20px] xl:text-[22px]">{item.q}</span>
               <span className="text-2xl leading-none">
                 {active === i ? '−' : '+'}
               </span>
@@ -118,7 +118,7 @@ export default function Faq() {
 
             <div
               ref={el => (contentRefs.current[i] = el)}
-              className="px-5 text-gray-600 overflow-hidden"
+              className="px-5 text-[10px] sm:text-[12px] md:text-[15px]  lg:text-[18px] xl:text-[20px] text-gray-600 overflow-hidden"
             >
               <p className="pb-4">{item.a}</p>
             </div>

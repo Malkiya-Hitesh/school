@@ -28,8 +28,8 @@ export default function PageClient() {
         {/* <section id="events"><EventSection /></section> */}
      
         <section   id="teachers"><TeachersSection /></section>
-        <section className=""  id="faq"><Fqa /></section>
-        <section className="min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3" id="contact"><ContactSection /></section>
+        <section   id="faq"><Fqa /></section>
+        <section id="contact"><ContactSection /></section>
       </main>
     </>
   )

@@ -35,7 +35,7 @@ function H1({ data, className }) {
   return (
     <h2
       ref={headingRef}
-      className={`${baloo.className} ${className} text-3xl sm:text-4xl  md:text-5xl  lg:text-[48px] xl:text-[53px] font-bold  bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
+      className={`${baloo.className} ${className} text-[36px] sm:text-[38px]  md:text-[43px]  lg:text-[48px] xl:text-[50px] font-bold  bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
     >
       {data}
     </h2>

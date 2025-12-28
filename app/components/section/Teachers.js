@@ -99,10 +99,10 @@ export default function TeachersSection() {
                 />
               </div>
 
-              <h3 className="min-[1048px]:text-lg text-base max-[768px]:text-sm  font-semibold" style={{ color: 'var(--color-text)' }}>
+              <h3 className="text-[15px] sm:text-[17px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold" style={{ color: 'var(--color-text)' }}>
                 {t.name}
               </h3>
-              <p className="mt-1 font-medium min-[1048px]:text-base text-sm max-[768px]:text-xs " style={{ color: 'var(--color-accent)' }}>
+              <p className="mt-1 font-medium text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px]  xl:text-[18px]  " style={{ color: 'var(--color-accent)' }}>
                 {t.subject}
               </p>
             </div>

@@ -84,8 +84,8 @@ export default function Programs() {
 
             {/* Program card */}
             <div className=" will-change-transform w-[45%] max-[640px]:w-[99%] bg-slate-50 p-8 rounded-2xl shadow-md">
-              <h3 className="text-lg sm:text-xl font-semibold text-blue-600">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed line-clamp-2 text-slate-600">{item.desc}</p>
+              <h3 className="text-lg sm:text-[19px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold text-blue-600">{item.title}</h3>
+              <p className="mt-3 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px]  xl:text-[18px] leading-relaxed line-clamp-2 text-slate-600">{item.desc}</p>
              
             </div>
           </div>
