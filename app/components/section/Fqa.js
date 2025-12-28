@@ -110,7 +110,7 @@ export default function Faq() {
               onClick={() => toggleItem(i)}
               className="w-full flex justify-between items-center p-5 text-left"
             >
-              <span className="font-semibold text-[14px] sm:text-[15px] md:text-[18px]  lg:text-[20px] xl:text-[22px]">{item.q}</span>
+              <span className="text-[15px] sm:text-[17px] md:text-[19px]  lg:text-[21px] xl:text-[23px] font-semibold">{item.q}</span>
               <span className="text-2xl leading-none">
                 {active === i ? '−' : '+'}
               </span>
@@ -118,7 +118,7 @@ export default function Faq() {
 
             <div
               ref={el => (contentRefs.current[i] = el)}
-              className="px-5 text-[10px] sm:text-[12px] md:text-[15px]  lg:text-[18px] xl:text-[20px] text-gray-600 overflow-hidden"
+              className="px-5 text-[13px] sm:text-[14px] md:text-[16px]  lg:text-[18px] xl:text-[20px] text-gray-600 overflow-hidden"
             >
               <p className="pb-4">{item.a}</p>
             </div>

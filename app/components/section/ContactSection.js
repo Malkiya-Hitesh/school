@@ -138,8 +138,8 @@ const ContactInfo = ({ icon: Icon, title, detail }) => {
     <div className="flex items-start gap-4 justify-center">  
       <Icon className="font-semibold text-[14px] sm:text-[15px] md:text-[18px]  lg:text-[20px] xl:text-[22px] mt-1 text-blue-600" />
       <div>
-        <h4 className="font-semibold text-[12px] sm:text-[13px] md:text-[16px]  lg:text-[18px] xl:text-[20px] ">{title}</h4>
-        <p className="text-gray-600 font-semibold text-[10px] sm:text-[11px] md:text-[14px]  lg:text-[16px] xl:text-[18px]">{detail}</p>
+        <h4 className="text-[15px] sm:text-[17px] md:text-[19px]  lg:text-[21px] xl:text-[23px] font-semibold ">{title}</h4>
+        <p className="text-gray-600 font-semibold text-[13px] sm:text-[14px] md:text-[16px]  lg:text-[18px] xl:text-[20px]">{detail}</p>
       </div>
     </div>
   )
