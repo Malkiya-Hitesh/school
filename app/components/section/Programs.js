@@ -11,6 +11,7 @@ export default function Programs() {
   const itemsRef = useRef([])
 
   useEffect(() => {
+    
     const ctx = gsap.context(() => {
       itemsRef.current.forEach((item, i) => {
         gsap.from(item, {
@@ -20,10 +21,11 @@ export default function Programs() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: item,
-            start: 'top 95%',
-            end: 'top 45%',
-            toggleActions: 'play none none reverse',
-            scrub: 0.5,
+            start: 'top 85%',
+            end: 'top 40%',
+
+            scrub: true,
+            toggleActions: undefined
           },
         })
       })
@@ -62,36 +64,29 @@ export default function Programs() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 px-6 bg-white text-slate-900"
-    >
-      <div className="text-center mb-24">
+      className="  min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3  bg-white text-slate-900 flex flex-col gap-8">
+      <div className="text-center">
         <H1 data={'Upcoming Programs'} />
-        <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-          Upcoming programs focused on technology, creativity, and real-world skills.
-        </p>
+     
       </div>
 
-      <div className="relative max-w-4xl mx-auto">
-        {/* Central vertical line */}
-        <div className="absolute left-1/2 top-0 w-[2px] h-full bg-slate-200 -translate-x-1/2" />
+      <div className="relative">
+        <div className="  max-[640px]:hidden absolute left-1/2 top-0 w-[2px] h-full bg-slate-200 -translate-x-1/2" />
 
         {programs.map((item, i) => (
           <div
             key={i}
             ref={(el) => (itemsRef.current[i] = el)}
-            className={`relative mb-24 flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+            className={`relative mb-10 flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
           >
             {/* Circle marker */}
-            <div className="absolute left-1/2 top-6 w-5 h-5 bg-blue-600 rounded-full -translate-x-1/2 z-10" />
+            <div className="  max-[640px]:hidden absolute left-1/2 top-6 w-5 h-5 bg-blue-600 rounded-full -translate-x-1/2 z-10" />
 
             {/* Program card */}
-            <div className="w-[80%] md:w-[45%] bg-slate-50 p-8 rounded-2xl shadow-md">
-              <h3 className="text-2xl font-semibold text-blue-600">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-slate-600">
-                {item.desc}
-              </p>
+            <div className=" will-change-transform w-[45%] max-[640px]:w-[99%] bg-slate-50 p-8 rounded-2xl shadow-md">
+              <h3 className="text-lg sm:text-xl font-semibold text-blue-600">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed line-clamp-2 text-slate-600">{item.desc}</p>
+             
             </div>
           </div>
         ))}

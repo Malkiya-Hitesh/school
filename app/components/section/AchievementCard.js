@@ -31,8 +31,7 @@ function AchievementCard() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(cardsRef.current, { opacity: 1, y: 0 }) // reset styles
-
+      gsap.set(cardsRef.current, { opacity: 1, y: 0 })
       gsap.from(cardsRef.current, {
         y: 80,
         opacity: 0,
@@ -55,13 +54,13 @@ function AchievementCard() {
   return (
     <div
       ref={containerRef}
-      className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-12 lg:px-24"
+      className="grid grid-cols-3 gap-8 max-[640px]:grid-cols-1"
     >
       {images.map((img, index) => (
         <div
           key={index}
           ref={el => (cardsRef.current[index] = el)}
-          className="group relative overflow-hidden rounded-xl shadow-xl cursor-pointer"
+          className="group relative overflow-hidden rounded-2xl shadow-xl cursor-pointer"
         >
           <Image
             src={img}
@@ -71,11 +70,11 @@ function AchievementCard() {
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-6 flex flex-col justify-end text-white opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex flex-col justify-end gap-2 p-5 text-white opacity-0 group-hover:opacity-100 transition-all duration-500">
             <h3 className="text-lg font-semibold">
               {titles[index]}
             </h3>
-            <p className="text-sm mt-2">
+            <p className="text-sm">
               {descriptions[index]}
             </p>
           </div>

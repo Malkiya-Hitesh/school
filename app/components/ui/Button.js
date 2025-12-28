@@ -1,13 +1,14 @@
 import React from 'react'
 
-function Button(props) {
- const { children, theme , clt , onClick} = props;
-
-    return (
-        <button onClick={onClick} className={`${clt} px-4 py-2 rounded-[10px] text-lg  font-semibold ${theme === 'dark' ? 'bg-(--color-primary) text-(--color-bg)' : 'bg-(--color-bg) text-(--color-primary) '}`}>
-            {children}
-        </button>
-    );
+function Button({ children, theme = 'dark', clt = '', onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`${clt} px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 text-sm sm:text-base lg:text-lg font-semibold rounded-[10px] transition-all duration-300 ease-out shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-[0.97] ${theme === 'dark' ? 'bg-[var(--color-primary)] text-[var(--color-bg)]' : 'bg-[var(--color-bg)] text-[var(--color-primary)] border border-[var(--color-primary)]'}`}
+    >
+      {children}
+    </button>
+  )
 }
 
 export default Button

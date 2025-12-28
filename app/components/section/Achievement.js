@@ -4,13 +4,16 @@ import AchievementCard from './AchievementCard'
 
 function Achievement() {
     return (
-        <section className="py-10 flex flex-col items-center mt-6  gap-8">
+        <section className=" flex flex-col items-center justify-center gap-8">
 
             {/* Heading */}
             <div>
                 <H1 data={'Achievement'} />
             </div>
+             <div className="w-[90vw] h-auto">
             <AchievementCard />
+          </div>
+            
 
 
         </section>

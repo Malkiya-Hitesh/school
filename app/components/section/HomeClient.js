@@ -13,42 +13,42 @@ function HomeClient() {
   const containerRef = useRef(null)
   const titleRef = useRef(null)
   const buttonsRef = useRef(null)
- const animatedRef = useRef(false)
+  const animatedRef = useRef(false)
 
 
 
-  
+
 
   useEffect(() => {
 
- const runAnimation = () => {
+    const runAnimation = () => {
       if (animatedRef.current) return
       animatedRef.current = true
 
       const ctx = gsap.context(() => {
 
- gsap.to(titleRef.current, {
-        backgroundPosition: '200% 50%',
-        duration: 3,
-        ease: 'linear',
-        repeat: -1,
-        yoyo: true,
-      })
+        gsap.to(titleRef.current, {
+          backgroundPosition: '200% 50%',
+          duration: 3,
+          ease: 'linear',
+          repeat: -1,
+          yoyo: true,
+        })
 
-      // Entrance animation using fromTo
-      const tl = gsap.timeline()
-      tl.fromTo(
-        titleRef.current,
-        { y: -80, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
-      ).fromTo(
-        buttonsRef.current,
-        { scale: 0.4, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
-        '-=0.5'
-      )
-    }, containerRef)
-   return () => ctx.revert()
+        // Entrance animation using fromTo
+        const tl = gsap.timeline()
+        tl.fromTo(
+          titleRef.current,
+          { y: -80, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.5, ease: 'power2.out' }
+        ).fromTo(
+          buttonsRef.current,
+          { scale: 0.4, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' },
+          '-=0.5'
+        )
+      }, containerRef)
+      return () => ctx.revert()
     }
 
     const handler = () => requestAnimationFrame(() => runAnimation())
@@ -68,15 +68,15 @@ function HomeClient() {
   return (
     <main
       ref={containerRef}
-      className="bg-[url('/image/hero_4.webp')] min-w-[100vw] bg-cover bg-no-repeat min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]"
+      className="bg-[url('/image/hero_4.webp')] min-w-[100vw] bg-cover bg-no-repeat min-[1048px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]  "
     >
       <div className="relative inset-0 bg-gradient-to-t from-black/90 to-transparent">
-        <div className="flex flex-col items-center gap-4 w-full max-w-4xl mx-auto text-center px-6 py-32">
+        <div className="flex flex-col items-center  justify-center gap-8 w-full  text-center min-[1028px]:py-30 py-23 max-[640px]:py-18 ">
           <h1
             ref={titleRef}
-            className={`${lilita.className} text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-[length:200%_200%] bg-[position:0%_50%] drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]`}
+            className={`${lilita.className} text-[clamp(4rem,7vw,6.5rem)] font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-[length:200%_200%] bg-[position:0%_50%] drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]`}
           >
-            Gnana Gangothri Vidyalaya
+            Gnana Gangothri <span className="block">Vidyalaya</span>
           </h1>
 
           <div
@@ -95,8 +95,8 @@ function HomeClient() {
         <Image
           src="/image/home-b.svg"
           alt="Hero Overlay"
-          width={100}
-          height={10}
+          width={1920} height={120}
+           priority
           className="pointer-events-none rotate-180 select-none w-[100vw] absolute bottom-[-10] left-0 right-0"
         />
       </div>

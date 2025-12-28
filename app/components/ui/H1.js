@@ -15,9 +15,9 @@ function H1({ data, className }) {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headingRef.current,
-        { y: -80, opacity: 0 },
+        { x: -80, opacity: 0 },
         {
-          y: 0,
+          x: 0,
           opacity: 1,
           duration: 1.2,
           ease: 'power2.out',
@@ -33,12 +33,12 @@ function H1({ data, className }) {
   }, [])
 
   return (
-    <h1
+    <h2
       ref={headingRef}
-      className={`${baloo.className} ${className} text-5xl font-bold  bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
+      className={`${baloo.className} ${className} text-2xl sm:text-3xl  md:text-5xl  lg:text-[48px] xl:text-[53px] font-bold  bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text`}
     >
       {data}
-    </h1>
+    </h2>
   )
 }
 
