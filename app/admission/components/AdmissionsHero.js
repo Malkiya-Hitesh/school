@@ -46,26 +46,28 @@ const AdmissionsHero = () => {
   }, [])
 
   return (
-    <section className="relative w-full min-h-[80vh] flex items-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+    <section className=" w-full bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3 ">
 
       {/* Decorative Blur Shapes */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div>
+      {/* <div className="absolute -top-32 -left-32 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-200 rounded-full blur-3xl opacity-30"></div> */}
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+
+      <div className=" grid min-[885px]:grid-cols-2 grid-cols-1 xl:gap-15 sm:gap-10  lg:gap-10  min-[885px]:gap-6 items-center ">
 
         {/* LEFT CONTENT */}
         <div >
-          <p ref={p1} className="inline-block px-4 py-1 mb-4 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">
+          <p ref={p1} className="inline-block px-4 py-1 mb-4 max-[490px]:text-[11px] text-[12px] sm:text-[14px] min-[885px]:text-[11px] lg:text-[14px] xl:text-[16px]  font-semibold text-blue-700 bg-blue-100 rounded-full">
             Admissions Open
           </p>
 
-          <h1 ref={h1Ref} className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          <h1 ref={h1Ref} className="  text-[45px]  sm:text-[55px] min-[885px]:text-[42px] lg:text-[47px] xl:text-[55px] font-extrabold text-gray-900 leading-tight">
             Begin Your Child’s <br />
             <span className="text-blue-600">Learning Journey</span>
           </h1>
 
-          <p ref={p2} className="mt-6 text-lg text-gray-600 max-w-xl">
+          <p ref={p2} className="sm:mt-6 mt-3   max-[490px]:text-[13px] text-[15px]  sm:text-[16px] min-[885px]:text-[13px] lg:text-[16px] xl:text-[18px] text-gray-600 max-w-xl">
             Join a nurturing environment that focuses on academic excellence,
             creativity, and holistic development.
           </p>
@@ -82,13 +84,13 @@ const AdmissionsHero = () => {
             <Link
               href="/about"
               >
-              <Button theme="dark">Learn More</Button>
+              <Button theme="webp">Learn More</Button>
             </Link>
           </div>
         </div>
 
         {/* RIGHT VISUAL */}
-        <div ref={rightRef} className="relative hidden lg:block">
+        <div ref={rightRef} className="relative  ">
           <div className="relative w-full h-[420px] rounded-3xl bg-white shadow-2xl p-8">
 
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-600 rounded-2xl"></div>

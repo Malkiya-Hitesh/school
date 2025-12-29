@@ -87,7 +87,7 @@ export default function ContactPage() {
   return (
     <section
       ref={sectionRef}
-      className="min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem] relative w-full py-20 px-4 bg-gradient-to-br from-indigo-50 via-indigo-100 to-indigo-200"
+      className="min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem] relative w-full  bg-gradient-to-br from-indigo-50 via-indigo-100 to-indigo-200 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3"
     >
       {/* Header */}
       <div ref={headerRef} className="text-center mb-16">
@@ -97,7 +97,7 @@ export default function ContactPage() {
         </h1>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl  grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         {/* Left Side */}
         <div ref={leftRef} className="space-y-8">
@@ -134,9 +134,9 @@ export default function ContactPage() {
         {/* Right Form */}
         <div
           ref={rightRef}
-          className="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden"
+          className="bg-white rounded-3xl shadow-2xl p-4 sm:p-5  md:p-6 lg:p-7 xl-9 relative overflow-hidden"
         >
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-200 rounded-full opacity-40" />
+          <div className="absolute top-20 right-20 w-40 h-40 bg-indigo-200 rounded-full opacity-40" />
           <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-indigo-100 rounded-full opacity-40" />
 
           <h2 className="text-2xl font-bold text-indigo-900 mb-6">

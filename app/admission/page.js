@@ -20,7 +20,7 @@ const AdmissionsPage = () => {
       <RequiredDocuments />
       <AdmissionForm />
       <Faq />
-      <AdmissionsCTA />
+      {/* <AdmissionsCTA /> */}
     </main>
   )
 }

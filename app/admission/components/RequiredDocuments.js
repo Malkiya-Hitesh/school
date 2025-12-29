@@ -12,9 +12,9 @@ const documents = [
 
 const RequiredDocuments = () => {
   return (
-    <section className="w-full py-24 px-4 flex flex-col items-center bg-gray-50 gap-8">
+    <section className=" bg-gray-50 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3flex flex-col gap-8">
         <H1 data="Required Documents" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl w-full">
         {documents.map((doc, index) => (
           <div
             key={index}
@@ -24,7 +24,7 @@ const RequiredDocuments = () => {
             <div className="w-10 h-10 mb-3 flex items-center justify-center bg-blue-600 text-white rounded-full shadow text-base font-semibold">
               📄
             </div>
-            <p className="text-gray-800 font-medium">{doc}</p>
+            <p className="text-lg sm:text-[19px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold text-blue-600">{doc}</p>
           </div>
         ))}
       </div>

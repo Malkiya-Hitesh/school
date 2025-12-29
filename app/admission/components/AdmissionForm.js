@@ -8,11 +8,13 @@ function AdmissionForm() {
         e.target.reset()
     }
     return (
-        <div className="min-h-screen flex justify-center items-start bg-gradient-to-br from-blue-200 to-white font-sans p-30">
-            <div className="w-full max-w-3xl bg-white p-10 rounded-3xl shadow-lg border border-indigo-100">
+        <div className=" flex flex-col items-center  bg-gradient-to-br from-blue-200 to-white font-sans min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3 ">
 
-                <H1 data="Admission Form" className="text-center mb-8" />
-                <p className="text-center text-gray-600">Please fill all required details carefully</p>
+            <div>
+                <H1 data="Admission Form" />
+            </div>
+            <div className="w-full  bg-white p-3 sm:p-5 md:p-8 lg:p-10 xl:p-10  rounded-lg shadow-md ">
+
                 <form onSubmit={handleSubmit}>
                     <FormInput label="Full Name" type='text' name="fullName" required={true} />
                     <FormInput label="Email Address" type="email" name="email" required={true} />
@@ -24,9 +26,9 @@ function AdmissionForm() {
 
                     <FormSelect
                         label="Gender"
-                        name="gender"   
+                        name="gender"
                         options={["Male", "Female", "Other"]}
-                    />  
+                    />
                     <FormSelect
                         label="Program Applying For"
                         name="program"
@@ -50,6 +52,7 @@ function AdmissionForm() {
                 </form>
             </div>
         </div>
+
     )
 }
 
@@ -59,38 +62,38 @@ export default AdmissionForm
 const FormInput = ({ label, type = 'text', name, required = false }) => {
     return (
 
-    <>
-        <label htmlFor={name} className="block mb-1.5 mt-4 text-sm font-bold text-blue-900">
-            {label}
-        </label>
-        <input
-            type={type}
-            id={name}
-            name={name}
-            placeholder={`Enter your ${label.toLowerCase()}`}
-            required={required}
-            className="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-    </>
-)
+        <>
+            <label htmlFor={name} className="block  mb-1.5 mt-4  text-sm font-bold text-blue-900">
+                {label}
+            </label>
+            <input
+                type={type}
+                id={name}
+                name={name}
+                placeholder={`Enter your ${label.toLowerCase()}`}
+                required={required}
+                className="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+        </>
+    )
 }
 const FormSelect = ({ label, name, options = [] }) => {
- return (
-       <>
-        <label htmlFor={name} className="block mb-1.5 mt-4 text-sm font-bold text-blue-900">
-            {label}
-        </label>
-        <select
-            id={name}
-            name={name}
-            required={true}
-            className="w-full p-3 rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        >
-            <option value="">Select</option>
-            {options.map((option) => (
-                <option key={option} value={option}>{option}</option>
-            ))}
-        </select>
-    </>
-        )
-    }
+    return (
+        <>
+            <label htmlFor={name} className="block  mb-1.5 mt-4  text-sm font-bold text-blue-900">
+                {label}
+            </label>
+            <select
+                id={name}
+                name={name}
+                required={true}
+                className="w-full  p-3  rounded-lg border border-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+                <option value="">Select</option>
+                {options.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                ))}
+            </select>
+        </>
+    )
+}
