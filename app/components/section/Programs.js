@@ -13,6 +13,7 @@ export default function Programs() {
   useEffect(() => {
     
     const ctx = gsap.context(() => {
+      
       itemsRef.current.forEach((item, i) => {
         gsap.from(item, {
           opacity: 0,

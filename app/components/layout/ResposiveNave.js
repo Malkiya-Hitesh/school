@@ -37,7 +37,7 @@ function ResposiveNave() {
 
   return (
     <>
-      {/* Desktop Buttons */}
+     
       <div className='navLink max-[640px]:hidden'>
         <Link href="/contact">
           <NavButoon theme="dark">contact</NavButoon>
@@ -50,13 +50,13 @@ function ResposiveNave() {
         </Link>
       </div>
 
-      {/* Hamburger */}
+ 
       <GiHamburgerMenu
         onClick={toggleMenu}
         className='text-[1.35rem] max-[640px]:text-[1.8rem] cursor-pointer'
       />
 
-      {/* Overlay */}
+      
       <div
         className={`fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity ${
           menu ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -64,7 +64,7 @@ function ResposiveNave() {
         onClick={toggleMenu}
       />
 
-      {/* Menu Panel */}
+     
       <div
         ref={menuRef}
         className={`fixed top-0 left-0 h-full w-[60%] bg-[var(--color-bg)]

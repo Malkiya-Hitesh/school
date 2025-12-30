@@ -1,10 +1,11 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { Activity,useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 export default function Cursor() {
   const dotRef = useRef(null)
   const ringRef = useRef(null)
+  const [cursorVisible, setCursorVisible] = useState(true)
 
   useEffect(() => {
     // ❌ Disable on touch devices
@@ -34,10 +35,18 @@ export default function Cursor() {
     }
   }, [])
 
+
+  useEffect(() => {
+     const isDesktop = window.innerWidth >= 778
+    if (!isDesktop){
+      setCursorVisible(false)
+    }
+  }, [])
   return (
-    <>
+    
+    <Activity mode={cursorVisible}>  
       <div ref={ringRef} className="cursor-ring" />
       <div ref={dotRef} className="cursor-dot" />
-    </>
+    </Activity>
   )
 }

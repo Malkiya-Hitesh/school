@@ -15,16 +15,13 @@ export default function SchoolLoader() {
 
   const [phase, setPhase] = useState('waiting')
 
-  const log = (...args) => console.log('🟡 [LOADER]', ...args)
 
   const fireLoaderFinished = () => {
 
     if (hasFiredRef.current) {
-      log('❌ loaderFinished already fired, skipping')
       return
     }
     hasFiredRef.current = true
-    log('✅ dispatch loaderFinished event')
     window.dispatchEvent(new Event('loaderFinished'))
   }
 
@@ -32,24 +29,19 @@ export default function SchoolLoader() {
      1️⃣ ASSET WAIT
   ---------------------------------------- */
   useEffect(() => {
-    log('mounted')
 
     if (sessionStorage.getItem('school-loader-done')) {
-      log('sessionStorage found → skip loader')
       fireLoaderFinished()
       setPhase('done')
       return
     }
 
     const waitForAssets = async () => {
-      log('waiting for fonts...')
       if (document.fonts) {
         await document.fonts.ready
       }
-      log('fonts ready')
 
       const images = Array.from(document.images)
-      log(`waiting for ${images.length} images`)
 
       await Promise.all(
         images.map((img, i) =>
@@ -57,14 +49,12 @@ export default function SchoolLoader() {
             ? Promise.resolve()
             : new Promise(res => {
               img.onload = img.onerror = () => {
-                log(`image loaded: ${img.src || i}`)
                 res()
               }
             })
         )
       )
 
-      log('all assets loaded → phase = progress')
       setPhase('progress')
     }
 
@@ -77,11 +67,9 @@ export default function SchoolLoader() {
   useEffect(() => {
     if (phase !== 'progress') return
     if (!progressBarRef.current) {
-      log('❌ progressBarRef missing')
       return
     }
 
-    log('progress animation start')
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -93,7 +81,6 @@ export default function SchoolLoader() {
           ease: 'power1.inOut',
           onComplete: () => {
 
-            log('progress complete → phase = video')
             setPhase('video')
           },
         }
@@ -101,7 +88,6 @@ export default function SchoolLoader() {
     }, loaderRef)
 
     return () => {
-      log('cleanup progress animation')
       ctx.revert()
     }
   }, [phase])
@@ -112,16 +98,13 @@ export default function SchoolLoader() {
   useEffect(() => {
     if (phase !== 'video') return
     if (!contentRef.current) {
-      log('❌ contentRef missing')
       return
     }
 
-    log('video animation start')
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
-          log('video animation complete')
          sessionStorage.setItem('school-loader-done', 'true')
 fireLoaderFinished()
 
@@ -141,7 +124,6 @@ fireLoaderFinished()
     }, loaderRef)
 
     return () => {
-      log('cleanup video animation')
       ctx.revert()
     }
   }, [phase])
@@ -150,7 +132,6 @@ fireLoaderFinished()
      4️⃣ RENDER
   ---------------------------------------- */
 
-  log('render → phase:', phase)
 
   if (phase === 'waiting') {
     return (
@@ -161,7 +142,6 @@ fireLoaderFinished()
   }
 
   if (phase === 'done') {
-    log('loader unmounted')
     return null
   }
 
