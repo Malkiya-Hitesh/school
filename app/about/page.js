@@ -2,7 +2,7 @@
 import React from 'react'
 import AboutHero from './components/AboutHero'
 import VisionMission from './components/VisionMission'
-// import CoreValues from './components/CoreValues'
+import CoreValues from './components/CoreValues'
 import Activities from './components/Activities'
 import PrincipalMessage from './components/PrincipalMessage'
 import AchievementsAndFacilities  from './components/AchievementsAndFacilities'
@@ -13,7 +13,7 @@ export default function Page() {
     <main id="about-main">
       <AboutHero />
       <VisionMission />
-      {/* <CoreValues /> */}
+      <CoreValues />
      
       <Activities />
        <PrincipalMessage />

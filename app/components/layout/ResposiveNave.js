@@ -95,9 +95,9 @@ function ResposiveNave() {
         <div onClick={toggleMenu} className="nav-item">
           <NavLink h="/academics" data="academics" />
         </div>
-        <div onClick={toggleMenu} className="nav-item">
+        {/* <div onClick={toggleMenu} className="nav-item">
           <NavLink h="/faculty" data="faculty" />
-        </div>
+        </div> */}
 
         <div onClick={toggleMenu} className="nav-item">
           <Link href="/contact">

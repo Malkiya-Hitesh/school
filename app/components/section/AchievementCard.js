@@ -13,8 +13,8 @@ function AchievementCard() {
 
   const images = [
     "/image/Slide_1.webp",
-    "/image/Slide_2.webp",
-    "/image/Slide_3.webp"
+    "/image/Slide_3.webp",
+    "/image/Slide_2.webp"
   ]
 
   const titles = [

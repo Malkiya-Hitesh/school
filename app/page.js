@@ -1,5 +1,5 @@
 
-import Achievement from "./components/section/Achievement";
+import Achievement from "./components/section/HomeAbout";
 import EventSection from "./components/section/Event";
 import Home from "./components/section/Home";
 import Programs from "./components/section/Programs";

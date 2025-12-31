@@ -1,11 +1,12 @@
 'use client'
 
 import {
-  AcademicCapIcon,
-  BuildingLibraryIcon,
-  UserGroupIcon,
-  FlagIcon,
-} from '@heroicons/react/24/outline'
+  HiAcademicCap,
+  HiBuildingLibrary,
+  HiUserGroup,
+  HiFlag,
+} from 'react-icons/hi2'
+
 
 export default function CoreValues() {
   const coreValues = [
@@ -13,25 +14,25 @@ export default function CoreValues() {
       title: 'Syllabus',
       description:
         'A well-structured curriculum designed to ensure academic excellence, lifelong learning, and real-world readiness.',
-      icon: AcademicCapIcon,
+      icon: HiAcademicCap,
     },
     {
       title: 'Environment',
       description:
         'A safe, nurturing, and inclusive environment that supports learning, creativity, and student well-being.',
-      icon: BuildingLibraryIcon,
+      icon: HiBuildingLibrary,
     },
     {
       title: 'Motive',
       description:
         'To prepare students for future challenges through values, discipline, higher education, and responsible citizenship.',
-      icon: FlagIcon,
+      icon: HiUserGroup,
     },
     {
       title: 'Faculty',
       description:
         'Dedicated educators who inspire, mentor, and empower students to become confident and ethical individuals.',
-      icon: UserGroupIcon,
+      icon: HiFlag,
     },
   ]
 

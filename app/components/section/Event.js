@@ -1,8 +1,12 @@
+
+
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import H1 from '../ui/H1'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const images = [
   { row: 1, col: 1, img: '/image/1.webp' },
@@ -31,55 +35,56 @@ const images = [
 ]
 
 export default function EventSection() {
-useEffect(() => {
-  const ctx = gsap.context(() => {
-    const images = gsap.utils.toArray('.grid-img')
+  const sectionRef = useRef(null)
+  const cardsRef = useRef([])
 
-    gsap.fromTo(
-      images,
-      {
-        opacity: 0,
-        scale: 0.9,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.09,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.grids',
-          start: 'top 85%',
-          end: 'bottom 30%',
-          scrub: 0.4,
+  useEffect(() => {
+  
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        cardsRef.current,
+        {
+          opacity: 0,
+          scale: 0.4,
         },
-      }
-    )
-  })
+        {
+          opacity: 1,
+          scale: 1,
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            end: 'bottom 30%',
+            scrub: true,
+          },
+        }
+      )
+    }, sectionRef)
 
-  return () => ctx.revert()
-}, [])
-
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section className="bg-white py-10 flex flex-col items-center mt-3 gap-24">
-      <div>
-         <H1 data="School Events" />
-      </div>
-     
+      <H1 data="School Events" />
 
-      {/* ✅ ADD REQUIRED CLASSES */}
-      <div className="grids  grid grid-cols-5 w-full ">
+      <div
+        ref={sectionRef}
+        className="grid grid-cols-5 w-full max-w-7xl gap-y-10"
+      >
         {images.map((item, index) => (
           <div
             key={index}
-            className="grid-item will-change-transform"
+            ref={(el) => el && (cardsRef.current[index] = el)}
             style={{
               gridColumn: item.col,
               gridRow: item.row,
             }}
+            className="will-change-transform"
           >
             <div
-              className="grid-img aspect-square w-[80%] rounded-xl bg-cover bg-center contrast-[70%]"
+              className="aspect-square w-[80%] rounded-xl bg-cover bg-center contrast-[70%]"
               style={{
                 backgroundImage: `url(${item.img})`,
               }}

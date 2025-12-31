@@ -3,14 +3,14 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import {
-  GraduationCap,
-  Users,
-  ShieldCheck,
-  Building2,
-  Sparkles,
-  HeartHandshake,
-} from 'lucide-react'
+  import {
+    GraduationCap,
+    Users,
+    ShieldCheck,
+    Building2,
+    Sparkles,
+    HeartHandshake,
+  } from 'lucide-react'
 import H1 from '../ui/H1'
 
 gsap.registerPlugin(ScrollTrigger)

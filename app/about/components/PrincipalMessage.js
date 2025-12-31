@@ -27,28 +27,28 @@ export default function PrincipalMessage() {
               Principal’s Message
             </h2>
 
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-              Education is not merely the acquisition of knowledge, but the
-              cultivation of values, character, and vision. At{' '}
-              <span className="font-semibold text-[#0a1f44]">
-                Gnana Gangothri Vidyalaya
-              </span>
-              , we strive to create an environment where every child feels
-              valued, inspired, and empowered to reach their full potential.
-            </p>
+<p className="text-gray-600 text-sm md:text-base leading-relaxed tracking-normal md:tracking-tight mb-3 text-justify">
+  Education is not merely the acquisition of knowledge, but the
+  cultivation of values, character, and vision. At{' '}
+  <span className="font-semibold text-[#0a1f44]">
+    Gnana Gangothri Vidyalaya
+  </span>
+  , we strive to create an environment where every child feels
+  valued, inspired, and empowered to reach their full potential.
+</p>
 
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-3">
-              Our dedicated faculty, well-structured curriculum, and holistic
-              approach ensure that students grow academically, socially, and
-              emotionally while developing discipline, responsibility, and
-              confidence.
-            </p>
+<p className="text-gray-600 text-sm md:text-base leading-relaxed tracking-normal md:tracking-tight mb-3 text-justify">
+  Through innovative teaching methods and continuous mentoring, we
+  encourage students to explore their strengths, embrace challenges,
+  and develop a lifelong passion for learning in a supportive and
+  nurturing environment.
+</p>
 
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-              Together with parents and the community, we aim to nurture future
-              leaders who are compassionate, knowledgeable, and ready to face
-              the challenges of tomorrow.
-            </p>
+<p className="text-gray-600 text-sm md:text-base leading-relaxed tracking-normal md:tracking-tight text-justify">
+  In partnership with parents and the wider community, we strive to
+  shape responsible individuals who demonstrate empathy, integrity,
+  and the confidence to succeed in an ever-changing world.
+</p>
 
             <div className="mt-5">
               <h4 className="text-base font-semibold text-[#0a1f44]">

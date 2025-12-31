@@ -81,7 +81,6 @@ export default function NavbarClient() {
         <NavLink h={"/about"} data={"about"} />
         <NavLink h={"/Alumini"} data={"alumini"} />
         <NavLink h={"/academics"} data={"academics"} />
-        <NavLink h={"/faculty"} data={"faculty"} />
         <Link href={"/contact"}>
           <NavButoon theme={"dark"}>contact</NavButoon>
         </Link>

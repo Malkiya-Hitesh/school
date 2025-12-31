@@ -33,14 +33,16 @@ export default function VisionMission() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-white py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-6">
+ <section ref={sectionRef} className="bg-white pt-12 pb-20 md:pt-16 md:pb-28">
+  <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-[#0a1f44]">
-            Vision & Mission
-          </h2>
-        </div>
+    <div className="text-center mb-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0a1f44] leading-tight tracking-tight">
+        Vision & Mission
+      </h1>
+    </div>
+
+
 
         <div className="grid md:grid-cols-2 gap-12">
 
@@ -59,15 +61,16 @@ export default function VisionMission() {
   “Shaping enlightened minds with strong character.”
 </p>
 
+<p className="text-white text-justify leading-snug tracking-[-0.02em] md:tracking-[-0.03em]">
+  At Gnana Gangothri Schools, we believe that true education goes beyond
+  textbooks and examinations. Our learning ecosystem encourages curiosity,
+  creativity, and independent thinking while instilling strong ethical
+  values and social responsibility. By nurturing intellectual growth
+  alongside emotional and moral development, we prepare students to become
+  thoughtful individuals and responsible global citizens.
+</p>
 
-  <p className="text-white text-justify leading-relaxed">
-    Gnana Gangothri Schools aspire to create an educational environment where
-    academic excellence harmoniously blends with moral values, cultural
-    awareness, and scientific thinking. Our vision is to nurture enlightened,
-    confident, and responsible individuals who are inspired to think
-    critically, act ethically, and contribute meaningfully to society while
-    embracing the challenges of a rapidly changing world.
-  </p>
+
 </div>
 
           {/* Mission */}
@@ -85,7 +88,7 @@ export default function VisionMission() {
             <p className="italic font-semibold text-[#0a1f44] mb-3 ">
               “Man making, character building education”
             </p>
-<p className="text-gray-700 text-justify leading-relaxed">
+<p className="text-gray-700 text-justify leading-relaxed tracking-[-0.02em] md:tracking-[-0.03em]">
   Inspired by Swami Vivekananda’s vision, Gnana Gangothri Schools are committed
   to revitalizing education by fostering a nurturing and holistic environment
   that emphasizes both academic excellence and character development. We
@@ -94,7 +97,6 @@ export default function VisionMission() {
   Our approach encourages curiosity, critical thinking, creativity, and moral
   integrity.
 </p>
-
           </div>
 
         </div>

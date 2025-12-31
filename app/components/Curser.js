@@ -5,7 +5,7 @@ import gsap from 'gsap'
 export default function Cursor() {
   const dotRef = useRef(null)
   const ringRef = useRef(null)
-  const [cursorVisible, setCursorVisible] = useState(true)
+
 
   useEffect(() => {
     // ❌ Disable on touch devices
@@ -16,10 +16,10 @@ export default function Cursor() {
     if (!dot || !ring) return
 
     // 🚀 High-performance setters
-    const setDotX = gsap.quickTo(dot, 'x', { duration: 0.15, ease: 'power3.out' })
-    const setDotY = gsap.quickTo(dot, 'y', { duration: 0.15, ease: 'power3.out' })
-    const setRingX = gsap.quickTo(ring, 'x', { duration: 0.3, ease: 'power3.out' })
-    const setRingY = gsap.quickTo(ring, 'y', { duration: 0.3, ease: 'power3.out' })
+    const setDotX = gsap.quickTo(dot, 'x', { duration: 0.30, ease: 'power3.out' })
+    const setDotY = gsap.quickTo(dot, 'y', { duration: 0.30, ease: 'power3.out' })
+    const setRingX = gsap.quickTo(ring, 'x', { duration: 0.25, ease: 'power3.out' })
+    const setRingY = gsap.quickTo(ring, 'y', { duration: 0.25, ease: 'power3.out' })
 
     const move = (e) => {
       setDotX(e.clientX)
@@ -36,17 +36,10 @@ export default function Cursor() {
   }, [])
 
 
-  useEffect(() => {
-     const isDesktop = window.innerWidth >= 778
-    if (!isDesktop){
-      setCursorVisible(false)
-    }
-  }, [])
+  
   return (
-    
-    <Activity mode={cursorVisible}>  
-      <div ref={ringRef} className="cursor-ring" />
-      <div ref={dotRef} className="cursor-dot" />
-    </Activity>
+    <><div ref={ringRef} className="cursor-ring text-blue-700 border-blue-600" />
+      <div ref={dotRef} className="cursor-dot text-amber-400" />
+    </>
   )
 }
