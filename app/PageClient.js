@@ -25,12 +25,12 @@ export default function PageClient() {
         <section id="home "><Home /></section>
         <section id="about"><HomeAbout /></section>
         <section id="sats"><StatsSection /> </section>
-        <section id="timeline"><TimelineSection /></section>
+        {/* <section id="timeline"><TimelineSection /></section> */}
         <section id="why" > <WhyC /> </section>
         <section id="facilities"> <Facilities /></section>
         <section id="programs"><Programs /></section>
-        <section id="choose"><Choose /></section>
-        <section id="events"><EventSection /></section>
+        {/* <section id="choose"><Choose /></section> */}
+        {/* <section id="events"><EventSection /></section> */}
   
         <section id="teachers"><TeachersSection /></section>
         <section id="faq"><Fqa /></section>
