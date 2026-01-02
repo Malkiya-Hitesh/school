@@ -45,12 +45,12 @@ export default function StatsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-10 px-5 max-[640px]:px-3 bg-blue-50 text-center" >
+    <section ref={sectionRef} className="lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3 bg-[var(--bg-dark-b)]  text-center" >
 
       <div className="grid grid-cols-2 min-[1048px]:grid-cols-4 gap-8 max-[478px]:grid-cols-1">
         {stats.map((item, i) => (
           <div key={i}>
-            <p className=" text-[clamp(1.6rem,4vw,2.6rem)] font-bold text-blue-600 will-change-transform">
+            <p className=" text-[2.25rem] sm:text-[2.3rem] md:text-[2.4rem] lg:text-[2.5rem] xl:text-[2.65rem] font-extrabold text-[var(--text-w)]  will-change-transform">
               <span
                 ref={(el) => {
                   if (el) countersRef.current[i] = el
@@ -60,7 +60,7 @@ export default function StatsSection() {
               </span>
               +
             </p>
-            <span className=" block pt-2 text-[clamp(0.95rem,2.2vw,1.05rem)]  font-medium text-slate-700">
+            <span className=" block pt-2 text-[1rem] sm:text-[1.05rem] md:text-[1.15rem] lg:text-[1.35rem] xl:text-[1.45rem] text-[var(--text-m)]  font-medium ">
               {item.label}
             </span>
           </div>

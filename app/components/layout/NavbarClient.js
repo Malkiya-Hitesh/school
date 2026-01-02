@@ -64,7 +64,7 @@ export default function NavbarClient() {
 
 
   return (
-    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1.8fr] w-[100vw] min-[1048px]:h-[6.7rem] h-[6.2rem] max-[640px]:h-[4.2rem]   items-center bg-[var(--color-border)] fixed top-0 mb-2 pr-2'>
+    <nav ref={navRef} className='z-5 grid grid-cols-[0.5fr_1.8fr] w-[100vw] items-center bg-[var(--bg-light)] fixed top-0 mb-2 pr-2'>
 
       <div className='flex justify-start items-center  '>
         <Image
@@ -76,7 +76,7 @@ export default function NavbarClient() {
         />
 
       </div>
-      <div className='flex nav-link items-center gap-6 justify-end max-[1048px]:hidden' >
+      <div className='lg:flex nav-link items-center gap-6 justify-end  hidden' >
         <NavLink h={"/"} data={"home"} />
         <NavLink h={"/about"} data={"about"} />
         <NavLink h={"/Alumini"} data={"alumini"} />
@@ -88,9 +88,8 @@ export default function NavbarClient() {
           <NavButoon theme={"light"}>admission</NavButoon>
         </Link>
 
-
       </div>
-      <div className=' max-[1048px]:flex hidden justify-end  items-center gap-5 ' >
+      <div className=' lg:hidden flex  justify-end  items-center gap-5 ' >
 
         <ResposiveNave />
 
@@ -105,6 +104,6 @@ export default function NavbarClient() {
 export const NavLink = ({ data, h }) => {
   return (
     <Link className={`${rubik.className} text-[1.35rem] tracking-[1.5px]
- hover:text-blue-600 font-semibold capitalize`} href={h} >{data}</Link>
+ hover:text-[var(---primary)] font-semibold capitalize `} href={h} >{data}</Link>
   )
 }

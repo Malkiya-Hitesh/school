@@ -3,6 +3,8 @@ import AcademicsHero from './components/AcademicsHero'
 import AcademicPhilosophy from './components/AcademicPhilosophy'
 import CurriculumOverview from './components/CurriculumOverview'
 import AcademicLevels from './components/AcademicLevels'
+import AcademicStructure from './components/AcademicStructure'
+import AcademicsCTA from './components/AcademicsCTA'
 
 function page() {
   return (
@@ -10,8 +12,10 @@ function page() {
     
    <AcademicsHero />
    <AcademicPhilosophy />
-   <CurriculumOverview />
-   <AcademicLevels />
+   <AcademicStructure />
+   <AcademicsCTA />
+   {/* <CurriculumOverview /> */}
+   {/* <AcademicLevels /> */}
    </>
   )
 }

@@ -38,7 +38,7 @@ function ResposiveNave() {
   return (
     <>
      
-      <div className='navLink max-[640px]:hidden'>
+      <div className='navLink max-[640px]:hidden '>
         <Link href="/contact">
           <NavButoon theme="dark">contact</NavButoon>
         </Link>
@@ -67,7 +67,7 @@ function ResposiveNave() {
      
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 h-full w-[60%] bg-[var(--color-bg)]
+        className={`fixed top-0 left-0 h-full w-[60%] bg-[var(--bg-light)]
         flex flex-col items-center py-10 gap-6 z-50 transition-all duration-300
         ${menu ? 'translate-x-0' : '-translate-x-full'}`}
       >

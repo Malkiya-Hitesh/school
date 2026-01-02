@@ -5,6 +5,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TbTargetArrow } from 'react-icons/tb'
 import { FaEye, FaSchool } from 'react-icons/fa'
+import H3 from '../ui/H3'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -64,21 +66,21 @@ export default function AboutCard() {
                 <div
                     key={index}
                     ref={el => (cardsRef.current[index] = el)}
-                    className={` bg-gradient-to-br from-blue-100 via-white to-white border border-blue-100 p-6 rounded-2xl border-t-5 border-blue-400 shadow-md hover:shadow-lg transition-shadow duration-300
+                    className={` bg-gradient-to-br from-blue-100 via-white to-white border border-t-blue-400 p-6 rounded-2xl border-t-5  shadow-md hover:shadow-lg transition-shadow duration-300
             ${index === 2 ? 'md:col-span-2 lg:col-span-1' : ''}
           `}
                 >
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100    text-[var(--text-p)]">
                             {item.icon}
                         </div>
-                        <h3 className="ml-3 text-xl font-semibold text-gray-800">
-                            {item.title}
-                        </h3>
+                        <H3 className="ml-3  font-bold text-[var(--text-p)]"
+                          data={item.title} />
+                  
                     </div>
-                    <p className="text-gray-600 leading-relaxed">
-                        {item.description}
-                    </p>
+<P data={item.description} className={'text-gray-600  leading-relaxed'} />
+                 
+                     
                 </div>
             ))}
         </div>

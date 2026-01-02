@@ -12,6 +12,8 @@ import {
   FaShieldAlt,
 } from 'react-icons/fa'
 import H1 from '../ui/H1'
+import H3 from '../ui/H3'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -75,10 +77,13 @@ export default function Facilities() {
 
   return (
     <section
-     
-      className="bg-white py-16 px-6 sm:px-10 lg:px-20"
+
+      className="bg-[var(--bg-light)] flex flex-col items-center justify-center gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3"
     >
-   
+   <div>
+    <H1 data="Our Facilities" />
+   </div>
+
       <div  ref={sectionRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {facilities.map((item, index) => (
           <div
@@ -90,12 +95,11 @@ export default function Facilities() {
             <div className="mb-5">{item.icon}</div>
 
             {/* Content */}
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              {item.title}
-            </h3>
-            <p className="text-gray-600 mb-4">
-              {item.desc}
-            </p>
+            <H3  className="text-xl font-semibold text-[var(--text-d)] mb-2"
+                data={item.title} />
+            <P className="text-[var(--text-m)] mb-4"
+              data={item.desc}
+            />  
 
             
           </div>

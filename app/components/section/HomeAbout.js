@@ -4,7 +4,7 @@ import AboutCard from './AboutCard'
 
 function HomeAbout() {
     return (
-        <section className=" flex flex-col items-center justify-center gap-8  min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3  ">
+        <section className=" flex flex-col items-center justify-center gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3 bg-[var(--bg-light)] ">
 
 
             <div className="w-[90vw] h-auto">

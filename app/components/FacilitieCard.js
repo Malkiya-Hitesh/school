@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from 'react'
 import Image from "next/image";
 import gsap from 'gsap';
 import { Flip } from 'gsap/Flip';
+import H3 from './ui/H3';
+import P from './ui/P';
 
 export default function FacilitieCard() {
   const containerRef = useRef(null);
@@ -75,8 +77,8 @@ export default function FacilitieCard() {
               />
             </div>
 
-            <h3 className="mt-2 text-lg font-semibold">{offer.title}</h3>
-            <p className="text-sm opacity-80">{offer.desc}</p>
+            <H3  className="mt-2 text-lg font-semibold" data={offer.title} /> 
+            <P className="text-sm opacity-80" data={offer.desc} />
           </div>
         ))}
       </div>

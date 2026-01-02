@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import H1 from '../ui/H1'
+import H3 from '../ui/H3'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -65,11 +67,12 @@ export default function Programs() {
   return (
     <section
       ref={sectionRef}
-      className="  min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3  bg-white text-slate-900 flex flex-col gap-8">
+      className=" flex flex-col  gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3 bg-white text-slate-900 ">
       <div className="text-center">
         <H1 data={'Upcoming Programs'} />
      
       </div>
+      
 
       <div className="relative">
         <div className="  max-[640px]:hidden absolute left-1/2 top-0 w-[2px] h-full bg-slate-200 -translate-x-1/2" />
@@ -85,9 +88,10 @@ export default function Programs() {
 
             {/* Program card */}
             <div className=" will-change-transform w-[45%] max-[640px]:w-[99%] bg-slate-50 p-8 rounded-2xl shadow-md">
-              <h3 className="text-lg sm:text-[19px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold text-blue-600">{item.title}</h3>
-              <p className="mt-3 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px]  xl:text-[18px] leading-relaxed line-clamp-2 text-slate-600">{item.desc}</p>
-             
+              <H3  className="text-lg sm:text-[19px] md:text-[21px]  lg:text-[23px] xl:text-[25px] font-semibold text-blue-600"
+                data={item.title} />
+              <P className="mt-3 text-[14px] sm:text-[14px] md:text-[14px] lg:text-[16px]  xl:text-[18px] leading-relaxed line-clamp-2 text-slate-600" 
+                data={item.desc} />
             </div>
           </div>
         ))}

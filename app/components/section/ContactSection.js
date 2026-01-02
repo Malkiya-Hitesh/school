@@ -5,6 +5,9 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi'
 import H1 from '../ui/H1'
+import H3 from '../ui/H3'
+import Span from '../ui/Span'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -60,7 +63,8 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-white  flex flex-col items-center gap-8 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3">
+    <section className="bg-white flex flex-col items-center  gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3">
+      
       <div>
         <H1 data="Contact Us" />
       </div>
@@ -138,8 +142,8 @@ const ContactInfo = ({ icon: Icon, title, detail }) => {
     <div className="flex items-start gap-4 justify-center">  
       <Icon className="font-semibold text-[14px] sm:text-[15px] md:text-[18px]  lg:text-[20px] xl:text-[22px] mt-1 text-blue-600" />
       <div>
-        <h4 className="text-[15px] sm:text-[17px] md:text-[19px]  lg:text-[21px] xl:text-[23px] font-semibold ">{title}</h4>
-        <p className="text-gray-600 font-semibold text-[13px] sm:text-[14px] md:text-[16px]  lg:text-[18px] xl:text-[20px]">{detail}</p>
+        <Span className={"font-semibold "} data={title} />
+        <P className={"text-gray-600  "} data={detail} />  
       </div>
     </div>
   )

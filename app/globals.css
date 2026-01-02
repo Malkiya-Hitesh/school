@@ -4,23 +4,28 @@
   scroll-behavior: smooth;
 }
 :root {
-  --color-primary: #1e40af;
-  --color-primary-dark: #1e3a8a;
-  --color-secondary: #282829;
-  --color-bg: #ffffff;
-  --color-bg-light: #f9f8fc;
-  --color-text: #0d0d0e;
-  --color-text-light: #475569;
-  --color-border: #e2e8f0;
-  --color-accent: #3b82f6;
-  --color-hover: #1d4ed8;
-  --color-card-bg: #ffffff;
-  --text-xxl: 1.5rem;
-  --text-xl: 1.75rem;
-  --text-lgg: 1.25rem;
-  --text-md: 1rem;
-  --text-sm: 0.875rem;
-  --text-xs: 0.75rem;
+  --primary: rgb(30 64 175);
+  --secondary: rgb(37 99 235);
+  --accent: rgb(250 204 21);
+  --accent-dark: rgb(202 138 4);
+
+  --text-d: rgb(15 23 42); /* main dark text */
+  --text-p: rgb(30 64 175); /* primary text */
+  --text-m: rgb(100 116 139); /* muted text */
+  --text-w: rgb(248 250 252); /* light text */
+
+  --bg-dark: rgb(9, 13, 22); /* dark background */
+  --bg-dark-b: rgb(3, 19, 74); /* darker background */
+  --bg-light: rgb(248 250 252); /* light background */
+  --bg-section: rgb(179, 182, 184); /* section background, softer */
+
+  --gradient-main: linear-gradient(
+    to bottom right,
+    rgb(149, 192, 249),
+    rgb(3, 20, 43),
+    rgb(255 255 255)
+  );
+
   --font-primary: "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
   --font-heading: "Poppins", "Inter", sans-serif;
 
@@ -43,7 +48,10 @@ body {
 }
 
 /* headings use the heading font */
-h1, h2, h3, .home-head {
+h1,
+h2,
+h3,
+.home-head {
   font-family: var(--font-heading);
 }
 .scrollbar-none::-webkit-scrollbar {

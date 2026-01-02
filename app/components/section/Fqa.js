@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import H1 from '../ui/H1'
+import Span from '../ui/Span'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,7 +94,7 @@ export default function Faq() {
   }
 
   return (
-    <section className="bg-white flex flex-col items-center  gap-10 min-[1048px]:py-19 py-13 max-[640px]:py-8 min-[1048px]:px-13 px-7 max-[640px]:px-3">
+    <section className="bg-white flex flex-col items-center  gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3">
       <div>
         <H1 data="FAQ " />
       </div>
@@ -110,7 +112,7 @@ export default function Faq() {
               onClick={() => toggleItem(i)}
               className="w-full flex justify-between items-center p-5 text-left"
             >
-              <span className="text-[15px] sm:text-[17px] md:text-[19px]  lg:text-[21px] xl:text-[23px] font-semibold">{item.q}</span>
+              <Span className={"font-semibold"} data={item.q} />
               <span className="text-2xl leading-none">
                 {active === i ? '−' : '+'}
               </span>
@@ -120,7 +122,7 @@ export default function Faq() {
               ref={el => (contentRefs.current[i] = el)}
               className="px-5 text-[13px] sm:text-[14px] md:text-[16px]  lg:text-[18px] xl:text-[20px] text-gray-600 overflow-hidden"
             >
-              <p className="pb-4">{item.a}</p>
+              <P className={"pb-4"} data={item.a} />
             </div>
           </div>
         ))}

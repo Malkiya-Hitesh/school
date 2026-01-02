@@ -68,13 +68,13 @@ function HomeClient() {
   return (
     <main
       ref={containerRef}
-      className="bg-[url('/image/hero_4.webp')] min-w-[100vw] bg-cover bg-no-repeat min-[1048px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]  "
+      className="bg-[url('/image/hero_4.webp')] min-w-[100vw] bg-cover bg-no-repeat min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]  "
     >
       <div className="relative inset-0 bg-gradient-to-t from-black/90 to-transparent">
-        <div className="flex flex-col items-center  justify-center gap-8 w-full  text-center min-[1028px]:py-30 py-23 max-[640px]:py-18 ">
+        <div className="flex flex-col items-center  justify-center gap-8 w-full  text-center lg:py-30 sm:py-23 py-18 ">
           <h1
             ref={titleRef}
-            className={`${lilita.className} text-[clamp(4rem,7vw,6.5rem)] font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-[length:200%_200%] bg-[position:0%_50%] drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]`}
+            className={`${lilita.className} text-[clamp(4.2rem,7vw,6.5rem)] font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-[length:200%_200%] bg-[position:0%_50%] drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]`}
           >
             Gnana Gangothri <span className="block">Vidyalaya</span>
           </h1>

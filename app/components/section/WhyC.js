@@ -11,6 +11,8 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
+import H3 from '../ui/H3'
+import P from '../ui/P'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -66,16 +68,18 @@ function WhyC() {
   return (
     <section
      
-      className="bg-gradient-to-b from-gray-900 via-gray-900 to-black px-6 py-14 sm:px-10 lg:px-14"
+      className="bg-gradient-to-b from-gray-900 via-gray-900 to-black flex flex-col items-center justify-center gap-8  lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3"
     >
       
-      <div className="mb-12 text-center">
-        <H1 data="Why Choose Us" />
-        <p className="mx-auto mt-3 max-w-2xl text-gray-400">
+      <div className='text-center'>
+ <H1 data="Why Choose Us" />
+  <p className="mx-auto mt-3 max-w-2xl text-gray-400">
           We provide a unique educational experience that combines academic excellence
           with character development.
         </p>
       </div>
+       
+     
 
       <div  ref={containerRef}  className="grid grid-cols-1 gap-8 sm:grid-cols-2">
         {items.map((item, index) => (
@@ -91,12 +95,10 @@ function WhyC() {
 
             {/* Text */}
             <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-semibold text-white">
-                {item.title}
-              </h3>
-              <p className="text-gray-400">
-                {item.desc}
-              </p>
+              <H3 className="text-2xl font-semibold text-white"
+                data={item.title} />
+              <P className="text-gray-400"
+                data={item.desc} />
             </div>
           </div>
         ))}
