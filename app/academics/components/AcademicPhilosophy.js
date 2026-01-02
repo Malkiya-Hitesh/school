@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FaChalkboardTeacher, FaBrain, FaLaptopCode, FaClipboardCheck } from 'react-icons/fa'
 import H1 from '@/app/components/ui/H1'
+import H3 from '@/app/components/ui/H3'
+import P from '@/app/components/ui/P'
 
 
 export default function AcademicPhilosophy() {
@@ -67,19 +69,23 @@ export default function AcademicPhilosophy() {
         {/* Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((item, index) => (
-            <div
-              key={index}
-              ref={el => (cardsRef.current[index] = el)}
-              className="group bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all"
-            >
-              <div className="mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                {item.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
+             <div
+            key={index}
+            ref={(el) => (cardsRef.current[index] = el)}
+            className="group bg-gradient-to-br from-blue-100 via-white to-white border border-blue-100   border-blue-400  rounded-2xl p-6  border-t-5 rounded-2xl shadow-md hover:shadow-lg flex flex-col justify-between  transition-all"
+          >
+            {/* Icon */}
+            <div className="mb-5">{item.icon}</div>
+
+            {/* Content */}
+            <H3  className="text-xl font-semibold text-[var(--text-d)] mb-2"
+                data={item.title} />
+            <P className="text-[var(--text-m)] mb-4"
+              data={item.desc}
+            />  
+
+            
+          </div>
           ))}
         </div>
 

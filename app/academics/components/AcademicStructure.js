@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { FaSchool, FaBookOpen, FaGraduationCap } from 'react-icons/fa'
 import H1 from '@/app/components/ui/H1'
+import H3 from '@/app/components/ui/H3'
+import Span from '@/app/components/ui/Span'
+import P from '@/app/components/ui/P'
+import Button from '@/app/components/ui/Button'
 
 
 export default function AcademicStructure() {
@@ -70,13 +74,16 @@ export default function AcademicStructure() {
               className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all text-center"
             >
               <div className="flex justify-center mb-5">{item.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-              <p className="text-sm text-blue-600 font-medium mt-1">
-                {item.subtitle}
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed mt-4">
-                {item.desc}
-              </p>
+              <H3 className="font-semibold text-gray-800" data={item.title} />
+              <Span  className="text-sm text-blue-600 font-medium mt-1"
+                data={item.subtitle}
+              />
+
+              <P className="text-gray-600 text-sm leading-relaxed mt-4"
+                data={item.desc} />
+              <button className="mt-6 px-5 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
+                enroll now
+              </button>
             </div>
           ))}
         </div>

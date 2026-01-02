@@ -25,7 +25,7 @@ export default function AcademicsHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[70vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-6 md:px-12 lg:px-20 min-[1048px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem]"
+      className="relative  flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-[1024px]:mt-[6.7rem] mt-[6.2rem] max-[640px]:mt-[4.2rem] lg:py-18 xl:py-20 md:py-13 sm:py-8  py-5 xl:px-13 lg:px-10 md:px-7 sm:px-5 px-3"
     >
       <div className="max-w-4xl text-center flex flex-col gap-6">
         
